@@ -3,318 +3,312 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pendataan Smartphone dan Media Sosial</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pendataan Smartphone & Akun Media Sosial</title>
 
 <style>
 :root {
-  --teal:#087f8c;
-  --navy:#153b50;
-  --bg:#f2f7fa;
-  --line:#d9e5ea;
+  --teal: #087f8c;
+  --navy: #153b50;
+  --bg: #f2f7fa;
+  --line: #d9e5ea;
 }
 
 * {
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 
 body {
-  margin:0;
-  background:var(--bg);
-  font:15px/1.5 system-ui,sans-serif;
-  color:#19313d;
+  margin: 0;
+  background: var(--bg);
+  font: 15px/1.5 system-ui, sans-serif;
+  color: #19313d;
 }
 
 header {
-  background:linear-gradient(120deg,#153b50,#087f8c);
-  color:white;
-  padding:25px 18px;
+  background: linear-gradient(120deg, #153b50, #087f8c);
+  color: white;
+  padding: 25px 18px;
 }
 
-header,main {
-  padding-left:max(18px,calc((100% - 980px)/2));
-  padding-right:max(18px,calc((100% - 980px)/2));
+header, main {
+  padding-left: max(18px, calc((100% - 980px)/2));
+  padding-right: max(18px, calc((100% - 980px)/2));
 }
 
 h1 {
-  font-size:clamp(24px,4vw,34px);
-  margin:4px 0;
+  font-size: clamp(24px, 4vw, 34px);
+  margin: 4px 0;
 }
 
 .sub {
-  color:#e3f5f4;
-  margin:0;
+  color: #e3f5f4;
+  margin: 0;
 }
 
 .wrap {
-  max-width:980px;
-  margin:auto;
+  max-width: 980px;
+  margin: auto;
 }
 
 main {
-  padding-top:18px;
-  padding-bottom:40px;
+  padding-top: 18px;
+  padding-bottom: 40px;
 }
 
-.notice,.card {
-  background:white;
-  border:1px solid var(--line);
-  border-radius:15px;
-  padding:17px;
-  margin-bottom:16px;
+.notice, .card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  padding: 17px;
+  margin-bottom: 16px;
 }
 
 .notice {
-  padding:19px 20px;
-  background:#f8fcfd;
-  border-color:#cbdfe5;
+  background: #f8fcfd;
+  border-color: #cbdfe5;
+  padding: 19px 20px;
 }
 
 .notice h2 {
-  font-size:19px;
-  color:var(--navy);
-  margin:0 0 7px;
+  font-size: 19px;
+  color: var(--navy);
+  margin: 0 0 7px;
 }
 
-.intro {
-  margin:0 0 13px;
-  color:#405c68;
+.notice .intro {
+  margin: 0 0 13px;
+  color: #405c68;
 }
 
 .steps {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 
 .step {
-  display:flex;
-  gap:11px;
-  align-items:flex-start;
-  background:white;
-  border:1px solid var(--line);
-  border-radius:11px;
-  padding:12px;
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  padding: 12px;
 }
 
 .stepno {
-  flex:0 0 30px;
-  height:30px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:var(--teal);
-  color:white;
-  font-weight:800;
+  flex: 0 0 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--teal);
+  color: white;
+  font-weight: 800;
 }
 
 .step b {
-  display:block;
-  color:var(--navy);
-  margin-bottom:3px;
+  display: block;
+  color: var(--navy);
+  margin-bottom: 3px;
 }
 
 .step p {
-  margin:0;
-  font-size:13px;
-  color:#526b76;
+  margin: 0;
+  font-size: 13px;
+  color: #526b76;
 }
 
 .card h2 {
-  margin:0 0 12px;
-  color:var(--navy);
-  font-size:19px;
+  margin: 0 0 12px;
+  color: var(--navy);
+  font-size: 19px;
 }
 
 label {
-  font-weight:650;
-  display:block;
-  font-size:13px;
-  margin:10px 0 5px;
+  font-weight: 650;
+  display: block;
+  font-size: 13px;
+  margin: 10px 0 5px;
 }
 
 input[type="text"],
 input[type="password"] {
-  padding:11px;
-  border:1px solid #bfd0d8;
-  border-radius:9px;
-  width:100%;
-  font:inherit;
+  padding: 11px;
+  border: 1px solid #bfd0d8;
+  border-radius: 9px;
+  width: 100%;
+  font: inherit;
 }
 
 .group {
-  border:1px solid var(--line);
-  border-radius:11px;
-  padding:10px 12px;
-  margin:12px 0;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  padding: 10px 12px;
+  margin: 12px 0;
 }
 
 .group legend {
-  font-weight:750;
-  color:var(--navy);
-  font-size:13px;
+  font-weight: 750;
+  color: var(--navy);
+  font-size: 13px;
 }
 
 .choices {
-  display:flex;
-  gap:18px;
-  flex-wrap:wrap;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
 }
 
 .choices label {
-  display:flex;
-  align-items:center;
-  gap:6px;
-  margin:2px 0;
-  font-weight:500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 2px 0;
+  font-weight: 500;
 }
 
 .grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:9px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
 }
 
 .btn {
-  background:var(--teal);
-  color:white;
-  border:0;
-  border-radius:9px;
-  padding:12px 16px;
-  font-weight:750;
-  cursor:pointer;
+  background: var(--teal);
+  color: white;
+  border: 0;
+  border-radius: 9px;
+  padding: 12px 16px;
+  font-weight: 750;
+  cursor: pointer;
 }
 
 .btn.alt {
-  background:#e8f2f5;
-  color:var(--navy);
+  background: #e8f2f5;
+  color: var(--navy);
 }
 
 .btn:disabled {
-  opacity:.6;
-  cursor:not-allowed;
+  opacity: .6;
 }
 
 .wide {
-  width:100%;
-  margin-top:10px;
+  width: 100%;
+  margin-top: 10px;
 }
 
 .status {
-  margin-top:12px;
-  padding:11px;
-  border-radius:9px;
-  display:none;
-  background:#e8f6ee;
-  color:#22673d;
-  overflow-wrap:anywhere;
+  margin-top: 12px;
+  padding: 11px;
+  border-radius: 9px;
+  display: none;
+  background: #e8f6ee;
+  color: #22673d;
 }
 
 .status.err {
-  background:#fff0e5;
-  color:#94501a;
+  background: #fff0e5;
+  color: #94501a;
 }
 
 .small {
-  font-size:12px;
-  color:#607580;
+  font-size: 12px;
+  color: #607580;
 }
 
 table {
-  border-collapse:collapse;
-  width:100%;
-  font-size:12px;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 12px;
 }
 
-td,th {
-  padding:8px;
-  border-bottom:1px solid var(--line);
-  text-align:left;
+td, th {
+  padding: 8px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
 }
 
 th {
-  background:#eff6f8;
+  background: #eff6f8;
 }
 
 .scroll {
-  overflow:auto;
+  overflow: auto;
 }
 
 a {
-  color:var(--teal);
-  font-weight:700;
+  color: var(--teal);
+  font-weight: 700;
 }
 
 footer {
-  text-align:center;
-  color:#617780;
-  font-size:12px;
-  padding:15px;
+  text-align: center;
+  color: #617780;
+  font-size: 12px;
+  padding: 15px;
 }
 
 .flow-info {
-  background:#eef6f8;
-  border:1px dashed #a8cbd4;
-  border-radius:10px;
-  padding:12px;
-  margin:10px 0;
-  color:#385865;
-  font-size:13px;
+  background: #eef6f8;
+  border: 1px dashed #a8cbd4;
+  border-radius: 10px;
+  padding: 12px;
+  margin: 10px 0;
+  color: #385865;
+  font-size: 13px;
 }
 
 .stage-title {
-  margin:18px 0 5px;
-  font-weight:800;
-  color:var(--navy);
-  border-left:4px solid var(--teal);
-  padding-left:10px;
+  margin: 18px 0 5px;
+  font-weight: 800;
+  color: var(--navy);
+  border-left: 4px solid var(--teal);
+  padding-left: 10px;
 }
 
 .stage-desc {
-  font-size:13px;
-  color:#5a707a;
-  margin:5px 0 10px;
+  font-size: 13px;
+  color: #5a707a;
+  margin: 5px 0 10px;
 }
 
 .skip-info {
-  background:#f1f8f3;
-  border:1px solid #b9ddc2;
-  border-radius:11px;
-  padding:13px;
-  margin:12px 0;
-  color:#275a39;
+  background: #f1f8f3;
+  border: 1px solid #b9ddc2;
+  border-radius: 11px;
+  padding: 13px;
+  margin: 12px 0;
+  color: #275a39;
 }
 
 .skip-info p {
-  font-size:13px;
-  margin:5px 0 0;
+  font-size: 13px;
+  margin: 5px 0 0;
 }
 
 [hidden] {
-  display:none!important;
+  display: none !important;
 }
 
-/* BAGIAN TAUTAN RESMI DAN CATATAN DISEMBUNYIKAN */
-
+/* Bagian yang tidak digunakan disembunyikan */
 .official,
 .official-mini,
-.privacy {
-  display:none!important;
+.privacy,
+#flw {
+  display: none !important;
 }
 
-@media(max-width:600px) {
+@media(max-width: 600px) {
   .steps {
-    grid-template-columns:1fr;
+    grid-template-columns: 1fr;
   }
 }
 
-@media(max-width:520px) {
+@media(max-width: 520px) {
   .grid {
-    grid-template-columns:1fr;
-  }
-
-  .choices {
-    gap:12px;
+    grid-template-columns: 1fr;
   }
 }
 </style>
@@ -324,34 +318,27 @@ footer {
 
 <header>
   <div class="wrap">
-
     <div style="font-size:12px;letter-spacing:.12em;font-weight:800;color:#b8f1ed">
       FORM PENDATAAN
     </div>
 
     <h1>Smartphone & Akun Media Sosial</h1>
-
-    <p class="sub">
-      Isi secara mandiri dan kirim laporan status Anda.
-    </p>
-
+    <p class="sub">Isi secara mandiri dan kirim laporan status Anda.</p>
   </div>
 </header>
 
 <main class="wrap">
 
 <!-- INFORMASI PENGISIAN -->
-
 <section class="notice">
 
   <h2>Informasi dan Alur Pengisian Formulir</h2>
 
   <p class="intro">
-    Mohon mengisi pendataan kepemilikan smartphone dan akun
-    media sosial dengan tertib serta sesuai keadaan yang sebenarnya.
+    Mohon mengisi pendataan kepemilikan smartphone dan akun media sosial
+    dengan tertib serta sesuai keadaan yang sebenarnya.
     Ikuti tahapan sesuai status kepemilikan smartphone.
-    Peserta yang belum memiliki smartphone dapat langsung
-    menuju pengiriman data.
+    Peserta yang belum memiliki smartphone dapat langsung mengirimkan data.
   </p>
 
   <div class="steps">
@@ -361,8 +348,8 @@ footer {
       <div>
         <b>Isi data kepemilikan smartphone</b>
         <p>
-          Nyatakan apakah Anda memiliki smartphone
-          dengan memilih jawaban yang sesuai.
+          Nyatakan apakah Anda memiliki smartphone dengan memilih
+          jawaban yang sesuai.
         </p>
       </div>
     </div>
@@ -372,10 +359,9 @@ footer {
       <div>
         <b>Lengkapi akun media sosial</b>
         <p>
-          Bagi yang belum memiliki akun Facebook (FB),
-          Instagram (IG), TikTok, atau YouTube,
-          silakan memasang aplikasi dan membuat akun
-          yang diperlukan sesuai ketentuan masing-masing platform.
+          Bagi yang belum memiliki akun Facebook (FB), Instagram (IG),
+          TikTok, atau YouTube, silakan memasang aplikasi dan membuat
+          akun yang diperlukan sesuai ketentuan masing-masing platform.
         </p>
       </div>
     </div>
@@ -383,21 +369,9 @@ footer {
     <div class="step">
       <span class="stepno">3</span>
       <div>
-        <b>Ikuti akun resmi yang ditetapkan</b>
+        <b>Kirim data pendataan</b>
         <p>
-          Apabila sudah memiliki akun terkait,
-          silakan mengikuti akun resmi yang telah ditetapkan.
-        </p>
-      </div>
-    </div>
-
-    <div class="step">
-      <span class="stepno">4</span>
-      <div>
-        <b>Isi dan kirim data pendataan</b>
-        <p>
-          Lengkapi seluruh status kepemilikan akun
-          dan status mengikuti akun resmi,
+          Pastikan data yang diisi sudah sesuai keadaan sebenarnya,
           kemudian tekan tombol Kirim pendataan.
         </p>
       </div>
@@ -407,9 +381,7 @@ footer {
 
 </section>
 
-
-<!-- FORMULIR PENDATAAN -->
-
+<!-- FORMULIR -->
 <section class="card">
 
   <h2>📝 Formulir pengisian mandiri</h2>
@@ -424,15 +396,12 @@ footer {
       type="text"
       maxlength="120"
       required
-      autocomplete="name"
       placeholder="Masukkan nama lengkap"
     >
 
     <fieldset class="group">
 
-      <legend>
-        1. Apakah Anda memiliki smartphone? *
-      </legend>
+      <legend>1. Apakah Anda memiliki smartphone? *</legend>
 
       <div class="choices">
 
@@ -459,9 +428,7 @@ footer {
       untuk menampilkan tahapan berikutnya.
     </div>
 
-
-    <!-- JIKA MEMILIKI SMARTPHONE -->
-
+    <!-- TAHAPAN UNTUK YANG MEMILIKI SMARTPHONE -->
     <div id="smartSteps" hidden>
 
       <div class="stage-title">
@@ -469,74 +436,42 @@ footer {
       </div>
 
       <p class="stage-desc">
-        Jika belum mempunyai akun Facebook, Instagram,
-        TikTok, atau YouTube, Anda diharapkan memasang
-        aplikasi dan membuat akun sesuai kebutuhan
-        serta ketentuan platform.
+        Jika belum mempunyai akun Facebook, Instagram, TikTok,
+        atau YouTube, Anda diharapkan memasang aplikasi dan membuat
+        akun sesuai kebutuhan serta ketentuan platform.
       </p>
 
+      <!-- PILIHAN STATUS AKUN -->
       <div class="grid" id="acct"></div>
 
-
-      <div class="stage-title">
-        3. Status mengikuti akun resmi
-      </div>
-
-      <p class="stage-desc">
-        Apabila sudah memiliki akun, silakan isi status
-        mengikuti akun resmi yang telah ditetapkan.
-      </p>
-
-      <div class="grid" id="flw"></div>
-
-
-      <div class="stage-title">
-        4. Periksa dan kirim data
-      </div>
-
-      <p class="stage-desc">
-        Pastikan jawaban sudah sesuai keadaan sebenarnya,
-        lalu kirim formulir.
-      </p>
+      <!-- BAGIAN STATUS MENGIKUTI AKUN RESMI DIHILANGKAN -->
+      <!-- BAGIAN PEMERIKSAAN TAHAP 4 DIHILANGKAN -->
 
     </div>
 
-
-    <!-- JIKA TIDAK MEMILIKI SMARTPHONE -->
-
+    <!-- JALUR TANPA SMARTPHONE -->
     <div id="nonSmartSteps" hidden class="skip-info">
 
-      <b>
-        Jalur pengisian untuk yang belum memiliki smartphone
-      </b>
+      <b>Jalur pengisian untuk yang belum memiliki smartphone</b>
 
       <p>
-        Terima kasih. Anda dapat melewati tahapan akun
-        media sosial dan mengikuti akun resmi.
+        Terima kasih. Anda dapat melewati tahapan akun media sosial.
         Silakan langsung mengirimkan data pendataan.
       </p>
 
     </div>
 
-
     <button class="btn wide" id="send" type="submit">
       Kirim pendataan
     </button>
 
-    <div
-      class="status"
-      id="msg"
-      role="status"
-      aria-live="polite"
-    ></div>
+    <div class="status" id="msg" role="status"></div>
 
   </form>
 
 </section>
 
-
-<!-- ADMIN -->
-
+<!-- BAGIAN ADMIN -->
 <section class="card">
 
   <h2>🔐 Admin — lihat rekap</h2>
@@ -568,23 +503,23 @@ footer {
 
 </section>
 
-
 <footer>
-  Pendataan media sosial
+  Pendataan media sosial • Isi data secukupnya dan batasi akses laporan.
 </footer>
 
 </main>
 
-
 <script>
 
-/* =====================================================
-   KONFIGURASI GOOGLE APPS SCRIPT
-   ===================================================== */
+/* ==================================================
+   KONFIGURASI
+   Ganti URL di bawah dengan URL Web App Google Apps Script.
+   URL harus berakhiran /exec.
+================================================== */
 
-// GANTI DENGAN URL WEB APP /exec MILIK ANDA
+const GAS_URL = "TEMPEL_URL_WEB_APP_GOOGLE_APPS_SCRIPT_DI_SINI";
 
-const GAS_URL = "https://script.google.com/macros/s/AKfycbwaxqI7PRD7ivo77NX8B3-mdDG4UPS_zSZWAT5DGHjcQV_L1nWTybFzSmqPE2YZruKijA/exec";
+const FOLLOW_URL = "https://slugpost.com/my-link";
 
 const services = [
   "Facebook",
@@ -594,75 +529,85 @@ const services = [
 ];
 
 
-/* =====================================================
-   MEMBUAT PILIHAN MEDIA SOSIAL
-   ===================================================== */
+/* ==================================================
+   MEMBUAT PILIHAN STATUS AKUN MEDIA SOSIAL
+================================================== */
 
-function build(target,prefix) {
+function buildAccounts() {
 
-  const container = document.getElementById(target);
+  document.getElementById("acct").innerHTML =
+    services.map((service, index) => `
 
-  container.innerHTML = services.map((service,i) => `
+      <fieldset class="group">
 
-    <fieldset class="group">
+        <legend>${service}</legend>
 
-      <legend>${service}</legend>
+        <div class="choices">
 
-      <div class="choices">
+          <label>
+            <input
+              type="radio"
+              name="a${index}"
+              value="Sudah"
+            >
+            Sudah
+          </label>
 
-        <label>
-          <input type="radio" name="${prefix}${i}" value="Sudah" required>
-          Sudah
-        </label>
+          <label>
+            <input
+              type="radio"
+              name="a${index}"
+              value="Belum"
+            >
+            Belum
+          </label>
 
-        <label>
-          <input type="radio" name="${prefix}${i}" value="Belum" required>
-          Belum
-        </label>
+        </div>
 
-      </div>
+      </fieldset>
 
-    </fieldset>
-
-  `).join("");
+    `).join("");
 
 }
 
-build("acct","a");
-build("flw","f");
+buildAccounts();
 
 
-/* =====================================================
-   ELEMEN FORM
-   ===================================================== */
+/* ==================================================
+   ELEMEN FORMULIR
+================================================== */
 
 const form = document.getElementById("form");
+
 const msg = document.getElementById("msg");
+
 const send = document.getElementById("send");
 
 const smartSteps = document.getElementById("smartSteps");
+
 const nonSmartSteps = document.getElementById("nonSmartSteps");
+
 const flowInfo = document.getElementById("flowInfo");
 
 
-/* =====================================================
-   MENGATUR JALUR PENGISIAN
-   ===================================================== */
+/* ==================================================
+   PENGATURAN JALUR PENGISIAN
+================================================== */
 
 function setSmartRoute(hasPhone) {
 
   smartSteps.hidden = !hasPhone;
+
   nonSmartSteps.hidden = hasPhone;
 
   flowInfo.textContent = hasPhone
 
-    ? "Anda memilih memiliki smartphone. Silakan lengkapi tahapan akun dan status mengikuti akun resmi, lalu kirim data."
+    ? "Anda memilih memiliki smartphone. Silakan lengkapi status akun media sosial, kemudian kirim data."
 
-    : "Anda memilih belum memiliki smartphone. Tahapan akun dan mengikuti akun resmi dilewati; Anda dapat langsung mengirim data.";
+    : "Anda memilih belum memiliki smartphone. Tahapan akun media sosial dilewati; Anda dapat langsung mengirim data.";
 
-  document.querySelectorAll(
-    "#smartSteps input[type=radio]"
-  ).forEach(el => {
+  /* Hanya pilihan status akun yang diwajibkan */
+  document.querySelectorAll("#acct input[type=radio]").forEach(el => {
 
     el.required = hasPhone;
 
@@ -675,25 +620,31 @@ function setSmartRoute(hasPhone) {
 }
 
 
+/* ==================================================
+   PERUBAHAN PILIHAN SMARTPHONE
+================================================== */
+
 document.querySelectorAll('input[name="phone"]').forEach(el => {
 
-  el.addEventListener("change",() => {
+  el.addEventListener("change", () => {
+
     setSmartRoute(el.value === "Ya");
+
   });
 
 });
 
 
-/* =====================================================
-   MEMERIKSA URL GOOGLE APPS SCRIPT
-   ===================================================== */
+/* ==================================================
+   PEMERIKSAAN URL GOOGLE APPS SCRIPT
+================================================== */
 
 function checkConfig() {
 
   if (!GAS_URL || GAS_URL.includes("TEMPEL_URL")) {
 
     throw new Error(
-      "URL Google Apps Script belum dipasang pada variabel GAS_URL."
+      "URL Google Apps Script belum dipasang pada variabel GAS_URL di file index.html."
     );
 
   }
@@ -701,9 +652,9 @@ function checkConfig() {
 }
 
 
-/* =====================================================
+/* ==================================================
    MENGIRIM DATA KE GOOGLE APPS SCRIPT
-   ===================================================== */
+================================================== */
 
 async function postToGas(payload) {
 
@@ -711,22 +662,24 @@ async function postToGas(payload) {
 
   const response = await fetch(GAS_URL, {
 
-    method:"POST",
+    method: "POST",
 
-    headers:{
-      "Content-Type":"text/plain;charset=utf-8"
+    headers: {
+      "Content-Type": "text/plain;charset=utf-8"
     },
 
-    body:JSON.stringify(payload),
+    body: JSON.stringify(payload),
 
-    redirect:"follow"
+    redirect: "follow"
 
   });
 
   if (!response.ok) {
+
     throw new Error(
-      "Server tidak merespons dengan baik. Status: " + response.status
+      "Server tidak merespons dengan baik (" + response.status + ")."
     );
+
   }
 
   return await response.json();
@@ -734,11 +687,11 @@ async function postToGas(payload) {
 }
 
 
-/* =====================================================
-   PROSES PENGIRIMAN FORMULIR
-   ===================================================== */
+/* ==================================================
+   PROSES KIRIM FORMULIR
+================================================== */
 
-form.addEventListener("submit",async function(e) {
+form.addEventListener("submit", async e => {
 
   e.preventDefault();
 
@@ -746,60 +699,34 @@ form.addEventListener("submit",async function(e) {
     return;
   }
 
-  const nameInput = document.getElementById("name");
+  const d = new FormData(form);
 
-  const name = nameInput.value.trim();
-
-  const phoneInput = document.querySelector(
-    'input[name="phone"]:checked'
-  );
-
-  if (!name) {
-
-    msg.className = "status err";
-    msg.textContent = "Nama lengkap wajib diisi.";
-    msg.style.display = "block";
-
-    nameInput.focus();
-
-    return;
-  }
-
-  if (!phoneInput) {
-
-    msg.className = "status err";
-    msg.textContent = "Silakan pilih status kepemilikan smartphone.";
-    msg.style.display = "block";
-
-    return;
-  }
-
-  const phone = phoneInput.value;
+  const phone = d.get("phone");
 
   const payload = {
 
-    action:"submit",
+    action: "submit",
 
-    name:name,
+    name: String(
+      document.getElementById("name").value || ""
+    ).trim(),
 
-    phone:phone,
+    phone: phone,
 
-    accounts:phone === "Ya"
-      ? services.map((_,i) =>
-          form.querySelector(`input[name="a${i}"]:checked`)?.value || ""
-        )
-      : ["","","",""],
+    accounts: phone === "Ya"
 
-    follows:phone === "Ya"
-      ? services.map((_,i) =>
-          form.querySelector(`input[name="f${i}"]:checked`)?.value || ""
-        )
-      : ["","","",""]
+      ? services.map((_, i) => d.get("a" + i) || "")
+
+      : ["", "", "", ""],
+
+    /* Status mengikuti akun resmi tidak lagi dikumpulkan */
+    follows: ["", "", "", ""]
 
   };
 
   send.disabled = true;
-  send.textContent = "Mengirim data...";
+
+  send.textContent = "Mengirim…";
 
   msg.style.display = "none";
 
@@ -808,10 +735,15 @@ form.addEventListener("submit",async function(e) {
     const result = await postToGas(payload);
 
     if (!result.success) {
-      throw new Error(result.message || "Data gagal disimpan.");
+
+      throw new Error(
+        result.message || "Data tidak berhasil disimpan."
+      );
+
     }
 
     msg.className = "status";
+
     msg.textContent = "Terima kasih. Data berhasil dikirim.";
 
     msg.style.display = "block";
@@ -819,23 +751,25 @@ form.addEventListener("submit",async function(e) {
     form.reset();
 
     smartSteps.hidden = true;
+
     nonSmartSteps.hidden = true;
 
     flowInfo.textContent =
       "Silakan pilih status kepemilikan smartphone untuk menampilkan tahapan berikutnya.";
 
-  } catch(error) {
+  } catch (err) {
 
     msg.className = "status err";
 
     msg.textContent =
-      "Gagal mengirim data: " + (error.message || String(error));
+      "Gagal mengirim data: " + (err.message || String(err));
 
     msg.style.display = "block";
 
   } finally {
 
     send.disabled = false;
+
     send.textContent = "Kirim pendataan";
 
   }
@@ -843,48 +777,67 @@ form.addEventListener("submit",async function(e) {
 });
 
 
-/* =====================================================
-   JSONP UNTUK LAPORAN ADMIN
-   ===================================================== */
+/* ==================================================
+   FUNGSI JSONP UNTUK MENGAMBIL LAPORAN ADMIN
+================================================== */
 
 function jsonp(url) {
 
-  return new Promise((resolve,reject) => {
+  return new Promise((resolve, reject) => {
 
     const callback =
       "gasCallback_" + Date.now() + "_" +
-      Math.floor(Math.random()*100000);
+      Math.floor(Math.random() * 100000);
 
     const script = document.createElement("script");
 
     const timer = setTimeout(() => {
+
       cleanup();
-      reject(new Error("Waktu permintaan habis. Periksa URL deployment."));
-    },20000);
+
+      reject(
+        new Error(
+          "Waktu permintaan habis. Periksa URL deployment dan koneksi internet."
+        )
+      );
+
+    }, 20000);
 
     function cleanup() {
+
       clearTimeout(timer);
+
       delete window[callback];
+
       script.remove();
+
     }
 
-    window[callback] = function(data) {
+    window[callback] = data => {
+
       cleanup();
+
       resolve(data);
+
     };
 
-    script.onerror = function() {
+    script.onerror = () => {
+
       cleanup();
-      reject(new Error("Tidak dapat menghubungi Google Apps Script."));
-    };
 
-    const pin = document.getElementById("pin").value;
+      reject(
+        new Error("Tidak dapat menghubungi Google Apps Script.")
+      );
+
+    };
 
     script.src =
       url +
       (url.includes("?") ? "&" : "?") +
       "action=admin" +
-      "&pin=" + encodeURIComponent(pin) +
+      "&pin=" + encodeURIComponent(
+        document.getElementById("pin").value
+      ) +
       "&callback=" + callback +
       "&t=" + Date.now();
 
@@ -895,79 +848,90 @@ function jsonp(url) {
 }
 
 
-/* =====================================================
-   TOMBOL LAPORAN ADMIN
-   ===================================================== */
+/* ==================================================
+   TOMBOL TAMPILKAN LAPORAN ADMIN
+================================================== */
 
-document.getElementById("admin").addEventListener(
-  "click",
-  async function() {
+document.getElementById("admin").addEventListener("click", async () => {
 
-    const area = document.getElementById("report");
+  const area = document.getElementById("report");
 
-    if (!GAS_URL || GAS_URL.includes("TEMPEL_URL")) {
-      area.textContent = "URL Google Apps Script belum dipasang.";
-      return;
+  if (!GAS_URL || GAS_URL.includes("TEMPEL_URL")) {
+
+    area.textContent =
+      "URL Google Apps Script belum dipasang di index.html.";
+
+    return;
+
+  }
+
+  area.textContent = "Memuat laporan…";
+
+  try {
+
+    const res = await jsonp(GAS_URL);
+
+    if (!res.success) {
+
+      throw new Error(
+        res.message || "Tidak dapat mengambil laporan."
+      );
+
     }
 
-    area.textContent = "Memuat laporan...";
+    const wrapper = document.createElement("div");
 
-    try {
+    wrapper.className = "scroll";
 
-      const res = await jsonp(GAS_URL);
+    const table = document.createElement("table");
 
-      if (!res.success) {
-        throw new Error(res.message || "Tidak dapat mengambil laporan.");
-      }
+    res.rows.forEach((row, ri) => {
 
-      const wrapper = document.createElement("div");
-      wrapper.className = "scroll";
+      const tr = document.createElement("tr");
 
-      const table = document.createElement("table");
+      row.forEach(cell => {
 
-      res.rows.forEach((row,ri) => {
+        const c = document.createElement(
+          ri === 0 ? "th" : "td"
+        );
 
-        const tr = document.createElement("tr");
+        c.textContent = cell == null ? "" : String(cell);
 
-        row.forEach(cell => {
+        c.style.whiteSpace = "normal";
 
-          const c = document.createElement(
-            ri === 0 ? "th" : "td"
-          );
-
-          c.textContent = cell == null ? "" : String(cell);
-          c.style.whiteSpace = "normal";
-
-          tr.appendChild(c);
-
-        });
-
-        table.appendChild(tr);
+        tr.appendChild(c);
 
       });
 
-      wrapper.appendChild(table);
+      table.appendChild(tr);
 
-      const link = document.createElement("p");
-      const a = document.createElement("a");
+    });
 
-      a.href = res.sheetUrl;
-      a.target = "_blank";
-      a.rel = "noopener";
-      a.textContent = "Buka Google Spreadsheet";
+    wrapper.appendChild(table);
 
-      link.appendChild(a);
+    const link = document.createElement("p");
 
-      area.replaceChildren(link,wrapper);
+    const a = document.createElement("a");
 
-    } catch(error) {
+    a.href = res.sheetUrl;
 
-      area.textContent = error.message || String(error);
+    a.target = "_blank";
 
-    }
+    a.rel = "noopener";
+
+    a.textContent = "Buka Google Spreadsheet";
+
+    link.appendChild(a);
+
+    area.replaceChildren(link, wrapper);
+
+  } catch (err) {
+
+    area.textContent = err.message || String(err);
 
   }
-);
+
+});
 
 </script>
 
