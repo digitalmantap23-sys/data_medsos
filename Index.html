@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pendataan Smartphone & Akun Media Sosial</title>
+<style>
+:root{--teal:#087f8c;--navy:#153b50;--bg:#f2f7fa;--line:#d9e5ea}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);font:15px/1.5 system-ui;color:#19313d}
+header{background:linear-gradient(120deg,#153b50,#087f8c);color:white;padding:25px 18px}
+header,main{padding-left:max(18px,calc((100% - 980px)/2));padding-right:max(18px,calc((100% - 980px)/2))}
+h1{font-size:clamp(24px,4vw,34px);margin:4px 0}.sub{color:#e3f5f4;margin:0}
+.wrap{max-width:980px;margin:auto}main{padding-top:18px;padding-bottom:40px}
+.notice,.card{background:white;border:1px solid var(--line);border-radius:15px;padding:17px;margin-bottom:16px}
+.notice{background:#f8fcfd!important;border-color:#cbdfe5!important;padding:19px 20px!important}
+.notice h2{font-size:19px;color:#153b50;margin:0 0 7px}.notice .intro{margin:0 0 13px;color:#405c68}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.step{display:flex;gap:11px;align-items:flex-start;background:#fff;border:1px solid #d9e5ea;border-radius:11px;padding:12px}
+.stepno{flex:0 0 30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#087f8c;color:white;font-weight:800}
+.step b{display:block;color:#153b50;margin-bottom:3px}.step p{margin:0;font-size:13px;color:#526b76}
+.notice .official{margin-top:12px;padding:12px;border-radius:10px;background:#e9f5f5;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.notice .official p{margin:0;font-size:13px;color:#254b58}.notice .official a{white-space:nowrap}
+.notice .privacy{font-size:12px;color:#607580;margin:11px 0 0}
+.card h2{margin:0 0 12px;color:var(--navy);font-size:19px}
+label{font-weight:650;display:block;font-size:13px;margin:10px 0 5px}
+input[type=text],input[type=password]{padding:11px;border:1px solid #bfd0d8;border-radius:9px;width:100%;font:inherit}
+.group{border:1px solid var(--line);border-radius:11px;padding:10px 12px;margin:12px 0}
+.group legend{font-weight:750;color:var(--navy);font-size:13px}
+.choices{display:flex;gap:18px;flex-wrap:wrap}.choices label{display:flex;align-items:center;gap:6px;margin:2px 0;font-weight:500}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.group .grid{gap:3px}
+.btn{background:var(--teal);color:white;border:0;border-radius:9px;padding:12px 16px;font-weight:750;cursor:pointer}
+.btn.alt{background:#e8f2f5;color:var(--navy)}.btn:disabled{opacity:.6}
+.wide{width:100%;margin-top:10px}.status{margin-top:12px;padding:11px;border-radius:9px;display:none;background:#e8f6ee;color:#22673d}
+.status.err{background:#fff0e5;color:#94501a}.small{font-size:12px;color:#607580}
+table{border-collapse:collapse;width:100%;font-size:12px}td,th{padding:8px;border-bottom:1px solid var(--line);text-align:left}th{background:#eff6f8}
+.scroll{overflow:auto}a{color:#087f8c;font-weight:700}
+footer{text-align:center;color:#617780;font-size:12px;padding:15px}
+.flow-info{background:#eef6f8;border:1px dashed #a8cbd4;border-radius:10px;padding:12px;margin:10px 0;color:#385865;font-size:13px}
+.stage-title{margin:18px 0 5px;font-weight:800;color:#153b50;border-left:4px solid #087f8c;padding-left:10px}
+.stage-desc{font-size:13px;color:#5a707a;margin:5px 0 10px}
+.official-mini{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#e9f5f5;border-radius:10px;padding:11px 13px;margin:8px 0 12px;color:#244d59;font-size:13px}
+.official-mini small{color:#607780}.official-mini a{white-space:nowrap}
+.skip-info{background:#f1f8f3;border:1px solid #b9ddc2;border-radius:11px;padding:13px;margin:12px 0;color:#275a39}
+.skip-info p{font-size:13px;margin:5px 0 0}[hidden]{display:none!important}
+@media(max-width:600px){.steps{grid-template-columns:1fr}.notice .official{align-items:flex-start;flex-direction:column}}
+@media(max-width:520px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<div style="font-size:12px;letter-spacing:.12em;font-weight:800;color:#b8f1ed">FORM PENDATAAN</div>
+<h1>Smartphone & Akun Media Sosial</h1><p class="sub">Isi secara mandiri dan kirim laporan status Anda.</p>
+</div></header>
+<main class="wrap">
+<section class="notice" aria-labelledby="instructions-title">
+<h2 id="instructions-title">Informasi dan Alur Pengisian Formulir</h2>
+<p class="intro">Mohon mengisi pendataan kepemilikan smartphone dan akun media sosial dengan tertib serta sesuai keadaan yang sebenarnya. Ikuti tahapan sesuai status kepemilikan smartphone. Peserta yang belum memiliki smartphone dapat langsung menuju pengiriman data.</p>
+<div class="steps">
+<div class="step"><span class="stepno">1</span><div><b>Isi data kepemilikan smartphone</b><p>Nyatakan apakah Anda memiliki smartphone dengan memilih jawaban yang sesuai.</p></div></div>
+<div class="step"><span class="stepno">2</span><div><b>Lengkapi akun media sosial</b><p>Bagi yang belum memiliki akun Facebook (FB), Instagram (IG), TikTok, atau YouTube, silakan memasang aplikasi dan membuat akun yang diperlukan sesuai ketentuan masing-masing platform.</p></div></div>
+<div class="step"><span class="stepno">3</span><div><b>Ikuti akun resmi yang ditetapkan</b><p>Apabila sudah memiliki akun terkait, silakan kunjungi tautan berikut dan ikuti akun resmi pada platform yang tersedia.</p></div></div>
+<div class="step"><span class="stepno">4</span><div><b>Isi dan kirim data pendataan</b><p>Lengkapi seluruh status kepemilikan akun dan status mengikuti akun resmi, kemudian tekan tombol <b>Kirim pendataan</b>.</p></div></div>
+</div>
+<div class="official"><p><b>Tautan akun resmi</b><br>Gunakan tautan ini untuk menemukan akun resmi yang telah ditetapkan.</p><a href="https://slugpost.com/my-link" target="_blank" rel="noopener">Buka slugpost.com/my-link ↗</a></div>
+<p class="privacy">Catatan: Pengisian status dilakukan berdasarkan laporan mandiri dan belum diverifikasi otomatis. Jangan mencantumkan atau membagikan kata sandi, kode OTP, maupun informasi pribadi sensitif.</p>
+</section>
+
+<section class="card"><h2>📝 Formulir pengisian mandiri</h2>
+<form id="form">
+<label for="name">Nama lengkap *</label><input id="name" type="text" maxlength="120" required placeholder="Masukkan nama lengkap">
+<fieldset class="group"><legend>1. Apakah Anda memiliki smartphone? *</legend><div class="choices">
+<label><input type="radio" name="phone" value="Ya" required> Ya, saya memiliki smartphone</label>
+<label><input type="radio" name="phone" value="Tidak"> Tidak memiliki smartphone</label>
+</div></fieldset>
+<div id="flowInfo" class="flow-info" aria-live="polite">Silakan pilih status kepemilikan smartphone untuk menampilkan tahapan berikutnya.</div>
+<div id="smartSteps" hidden>
+<div class="stage-title">2. Status akun media sosial</div>
+<p class="stage-desc">Jika belum mempunyai akun Facebook, Instagram, TikTok, atau YouTube, Anda diharapkan memasang aplikasi dan membuat akun sesuai kebutuhan serta ketentuan platform.</p>
+<div class="grid" id="acct"></div>
+<div class="stage-title">3. Status mengikuti akun resmi</div>
+<p class="stage-desc">Apabila sudah memiliki akun, Anda disarankan mengikuti akun resmi yang telah ditetapkan melalui tautan berikut.</p>
+<div class="official-mini"><span><b>Akun resmi</b><br><small>FB • IG • TikTok • YouTube</small></span><a href="https://slugpost.com/my-link" target="_blank" rel="noopener">Buka tautan ↗</a></div>
+<div class="grid" id="flw"></div>
+<div class="stage-title">4. Periksa dan kirim data</div>
+<p class="stage-desc">Pastikan jawaban sudah sesuai keadaan sebenarnya, lalu kirim formulir.</p>
+</div>
+<div id="nonSmartSteps" hidden class="skip-info"><b>Jalur pengisian untuk yang belum memiliki smartphone</b><p>Terima kasih. Anda dapat melewati tahapan akun media sosial dan mengikuti akun resmi. Silakan langsung mengirimkan data pendataan.</p></div>
+<button class="btn wide" id="send" type="submit">Kirim pendataan</button><div class="status" id="msg" role="status"></div>
+</form></section>
+
+<section class="card"><h2>🔐 Admin — lihat rekap</h2>
+<p class="small">Bagian admin. PIN admin ditentukan di Code.gs. Jangan membagikan PIN kepada pengisi formulir.</p>
+<label for="pin">PIN admin</label><input id="pin" type="password" autocomplete="current-password" placeholder="PIN admin">
+<button class="btn alt" id="admin" type="button" style="margin-top:9px">Tampilkan laporan</button>
+<div id="report"></div>
+</section>
+<footer>Pendataan media sosial • Isi data secukupnya dan batasi akses laporan.</footer>
+</main>
+
+<script>
+/*
+  PENTING: setelah deploy Google Apps Script sebagai Web App,
+  tempel URL Web App berakhiran /exec di bawah ini.
+*/
+const GAS_URL = "https://script.google.com/macros/s/AKfycbwaxqI7PRD7ivo77NX8B3-mdDG4UPS_zSZWAT5DGHjcQV_L1nWTybFzSmqPE2YZruKijA/exec";
+const FOLLOW_URL = "https://slugpost.com/my-link";
+const services = ['Facebook','Instagram','TikTok','YouTube'];
+
+function build(target,prefix){
+  document.getElementById(target).innerHTML = services.map((s,i)=>`
+    <fieldset class="group"><legend>${s}</legend><div class="choices">
+      <label><input type="radio" name="${prefix}${i}" value="Sudah" required> Sudah</label>
+      <label><input type="radio" name="${prefix}${i}" value="Belum" required> Belum</label>
+    </div></fieldset>`).join('');
+}
+build('acct','a'); build('flw','f');
+
+const form=document.getElementById('form');
+const msg=document.getElementById('msg');
+const send=document.getElementById('send');
+const smartSteps=document.getElementById('smartSteps');
+const nonSmartSteps=document.getElementById('nonSmartSteps');
+const flowInfo=document.getElementById('flowInfo');
+
+function setSmartRoute(hasPhone){
+  smartSteps.hidden=!hasPhone;
+  nonSmartSteps.hidden=hasPhone;
+  flowInfo.textContent=hasPhone
+    ?'Anda memilih memiliki smartphone. Silakan lengkapi tahapan akun dan status mengikuti akun resmi, lalu kirim data.'
+    :'Anda memilih belum memiliki smartphone. Tahapan akun dan mengikuti akun resmi dilewati; Anda dapat langsung mengirim data.';
+  document.querySelectorAll('#smartSteps input[type=radio]').forEach(el=>{
+    el.required=hasPhone;
+    if(!hasPhone) el.checked=false;
+  });
+}
+document.querySelectorAll('input[name="phone"]').forEach(el=>
+  el.addEventListener('change',()=>setSmartRoute(el.value==='Ya'))
+);
+
+function checkConfig(){
+  if(!GAS_URL || GAS_URL.includes('TEMPEL_URL'))
+    throw new Error('URL Google Apps Script belum dipasang pada variabel GAS_URL di file index.html.');
+}
+async function postToGas(payload){
+  checkConfig();
+  const response=await fetch(GAS_URL,{
+    method:'POST',
+    // text/plain menghindari preflight CORS pada permintaan lintas domain.
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify(payload),
+    redirect:'follow'
+  });
+  if(!response.ok) throw new Error('Server tidak merespons dengan baik ('+response.status+').');
+  return await response.json();
+}
+
+form.addEventListener('submit',async e=>{
+  e.preventDefault();
+  if(!form.reportValidity()) return;
+  const d=new FormData(form);
+  const phone=d.get('phone');
+  const payload={
+    action:'submit',
+    name:String(d.get('name')||'').trim(),
+    phone:phone,
+    accounts:phone==='Ya'?services.map((_,i)=>d.get('a'+i)):['','','',''],
+    follows:phone==='Ya'?services.map((_,i)=>d.get('f'+i)):['','','','']
+  };
+  send.disabled=true; send.textContent='Mengirim…';
+  msg.style.display='none';
+  try{
+    const result=await postToGas(payload);
+    if(!result.success) throw new Error(result.message||'Data tidak berhasil disimpan.');
+    msg.className='status';
+    msg.textContent='Terima kasih. Data berhasil dikirim.';
+    const link=document.createElement('a');
+    link.href=result.followUrl||FOLLOW_URL;link.target='_blank';link.rel='noopener';
+    link.textContent='Buka akun resmi untuk mengikuti';
+    msg.appendChild(document.createElement('br'));msg.appendChild(link);
+    msg.style.display='block';
+    form.reset();smartSteps.hidden=true;nonSmartSteps.hidden=true;
+    flowInfo.textContent='Silakan pilih status kepemilikan smartphone untuk menampilkan tahapan berikutnya.';
+  }catch(err){
+    msg.className='status err';msg.textContent='Gagal mengirim data: '+(err.message||String(err));
+    msg.style.display='block';
+  }finally{
+    send.disabled=false;send.textContent='Kirim pendataan';
+  }
+});
+
+function jsonp(url){
+  return new Promise((resolve,reject)=>{
+    const callback='gasCallback_'+Date.now()+'_'+Math.floor(Math.random()*100000);
+    const script=document.createElement('script');
+    const timer=setTimeout(()=>{cleanup();reject(new Error('Waktu permintaan habis. Periksa URL deployment dan koneksi internet.'));},20000);
+    function cleanup(){clearTimeout(timer);delete window[callback];script.remove();}
+    window[callback]=(data)=>{cleanup();resolve(data);};
+    script.onerror=()=>{cleanup();reject(new Error('Tidak dapat menghubungi Google Apps Script.'))};
+    script.src=url+(url.includes('?')?'&':'?')+'action=admin&pin='+encodeURIComponent(document.getElementById('pin').value)+'&callback='+callback+'&t='+Date.now();
+    document.body.appendChild(script);
+  });
+}
+document.getElementById('admin').addEventListener('click',async()=>{
+  const area=document.getElementById('report');
+  if(!GAS_URL || GAS_URL.includes('TEMPEL_URL')){area.textContent='URL Google Apps Script belum dipasang di index.html.';return;}
+  area.textContent='Memuat laporan…';
+  try{
+    const res=await jsonp(GAS_URL);
+    if(!res.success) throw new Error(res.message||'Tidak dapat mengambil laporan.');
+    const wrapper=document.createElement('div');wrapper.className='scroll';
+    const table=document.createElement('table');
+    res.rows.forEach((row,ri)=>{
+      const tr=document.createElement('tr');
+      row.forEach(cell=>{
+        const c=document.createElement(ri===0?'th':'td');
+        c.textContent=cell==null?'':String(cell);c.style.whiteSpace='normal';tr.appendChild(c);
+      });
+      table.appendChild(tr);
+    });
+    wrapper.appendChild(table);
+    const link=document.createElement('p');const a=document.createElement('a');
+    a.href=res.sheetUrl;a.target='_blank';a.rel='noopener';a.textContent='Buka Google Spreadsheet';
+    link.appendChild(a);area.replaceChildren(link,wrapper);
+  }catch(err){area.textContent=err.message||String(err);}
+});
+</script>
+</body>
+</html>
