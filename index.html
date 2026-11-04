@@ -8,354 +8,313 @@
 
 <style>
 :root {
-  --teal: #087f8c;
-  --navy: #153b50;
-  --bg: #f2f7fa;
-  --line: #d9e5ea;
+  --teal:#087f8c;
+  --navy:#153b50;
+  --bg:#f2f7fa;
+  --line:#d9e5ea;
 }
 
 * {
-  box-sizing: border-box;
+  box-sizing:border-box;
 }
 
 body {
-  margin: 0;
-  background: var(--bg);
-  font: 15px/1.5 system-ui, sans-serif;
-  color: #19313d;
+  margin:0;
+  background:var(--bg);
+  font:15px/1.5 system-ui,sans-serif;
+  color:#19313d;
 }
 
 header {
-  background: linear-gradient(120deg, #153b50, #087f8c);
-  color: white;
-  padding: 25px 18px;
+  background:linear-gradient(120deg,#153b50,#087f8c);
+  color:white;
+  padding:25px 18px;
 }
 
-header, main {
-  padding-left: max(18px, calc((100% - 980px)/2));
-  padding-right: max(18px, calc((100% - 980px)/2));
+header,main {
+  padding-left:max(18px,calc((100% - 980px)/2));
+  padding-right:max(18px,calc((100% - 980px)/2));
 }
 
 h1 {
-  font-size: clamp(24px, 4vw, 34px);
-  margin: 4px 0;
+  font-size:clamp(24px,4vw,34px);
+  margin:4px 0;
 }
 
 .sub {
-  color: #e3f5f4;
-  margin: 0;
+  color:#e3f5f4;
+  margin:0;
 }
 
 .wrap {
-  max-width: 980px;
-  margin: auto;
+  max-width:980px;
+  margin:auto;
 }
 
 main {
-  padding-top: 18px;
-  padding-bottom: 40px;
+  padding-top:18px;
+  padding-bottom:40px;
 }
 
-.notice, .card {
-  background: white;
-  border: 1px solid var(--line);
-  border-radius: 15px;
-  padding: 17px;
-  margin-bottom: 16px;
+.notice,.card {
+  background:white;
+  border:1px solid var(--line);
+  border-radius:15px;
+  padding:17px;
+  margin-bottom:16px;
 }
 
 .notice {
-  padding: 19px 20px;
-  background: #f8fcfd;
-  border-color: #cbdfe5;
+  padding:19px 20px;
+  background:#f8fcfd;
+  border-color:#cbdfe5;
 }
 
 .notice h2 {
-  font-size: 19px;
-  color: var(--navy);
-  margin: 0 0 7px;
+  font-size:19px;
+  color:var(--navy);
+  margin:0 0 7px;
 }
 
 .intro {
-  margin: 0 0 13px;
-  color: #405c68;
+  margin:0 0 13px;
+  color:#405c68;
 }
 
 .steps {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
 }
 
 .step {
-  display: flex;
-  gap: 11px;
-  align-items: flex-start;
-  background: white;
-  border: 1px solid var(--line);
-  border-radius: 11px;
-  padding: 12px;
+  display:flex;
+  gap:11px;
+  align-items:flex-start;
+  background:white;
+  border:1px solid var(--line);
+  border-radius:11px;
+  padding:12px;
 }
 
 .stepno {
-  flex: 0 0 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: var(--teal);
-  color: white;
-  font-weight: 800;
+  flex:0 0 30px;
+  height:30px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:var(--teal);
+  color:white;
+  font-weight:800;
 }
 
 .step b {
-  display: block;
-  color: var(--navy);
-  margin-bottom: 3px;
+  display:block;
+  color:var(--navy);
+  margin-bottom:3px;
 }
 
 .step p {
-  margin: 0;
-  font-size: 13px;
-  color: #526b76;
-}
-
-.official {
-  margin-top: 12px;
-  padding: 12px;
-  border-radius: 10px;
-  background: #e9f5f5;
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.official p {
-  margin: 0;
-  font-size: 13px;
-  color: #254b58;
-}
-
-.official a {
-  white-space: nowrap;
-}
-
-.privacy {
-  font-size: 12px;
-  color: #607580;
-  margin: 11px 0 0;
+  margin:0;
+  font-size:13px;
+  color:#526b76;
 }
 
 .card h2 {
-  margin: 0 0 12px;
-  color: var(--navy);
-  font-size: 19px;
+  margin:0 0 12px;
+  color:var(--navy);
+  font-size:19px;
 }
 
 label {
-  font-weight: 650;
-  display: block;
-  font-size: 13px;
-  margin: 10px 0 5px;
+  font-weight:650;
+  display:block;
+  font-size:13px;
+  margin:10px 0 5px;
 }
 
 input[type="text"],
 input[type="password"] {
-  padding: 11px;
-  border: 1px solid #bfd0d8;
-  border-radius: 9px;
-  width: 100%;
-  font: inherit;
+  padding:11px;
+  border:1px solid #bfd0d8;
+  border-radius:9px;
+  width:100%;
+  font:inherit;
 }
 
 .group {
-  border: 1px solid var(--line);
-  border-radius: 11px;
-  padding: 10px 12px;
-  margin: 12px 0;
+  border:1px solid var(--line);
+  border-radius:11px;
+  padding:10px 12px;
+  margin:12px 0;
 }
 
 .group legend {
-  font-weight: 750;
-  color: var(--navy);
-  font-size: 13px;
+  font-weight:750;
+  color:var(--navy);
+  font-size:13px;
 }
 
 .choices {
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
 }
 
 .choices label {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin: 2px 0;
-  font-weight: 500;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  margin:2px 0;
+  font-weight:500;
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 9px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
 }
 
 .btn {
-  background: var(--teal);
-  color: white;
-  border: 0;
-  border-radius: 9px;
-  padding: 12px 16px;
-  font-weight: 750;
-  cursor: pointer;
+  background:var(--teal);
+  color:white;
+  border:0;
+  border-radius:9px;
+  padding:12px 16px;
+  font-weight:750;
+  cursor:pointer;
 }
 
 .btn.alt {
-  background: #e8f2f5;
-  color: var(--navy);
+  background:#e8f2f5;
+  color:var(--navy);
 }
 
 .btn:disabled {
-  opacity: .6;
-  cursor: not-allowed;
+  opacity:.6;
+  cursor:not-allowed;
 }
 
 .wide {
-  width: 100%;
-  margin-top: 10px;
+  width:100%;
+  margin-top:10px;
 }
 
 .status {
-  margin-top: 12px;
-  padding: 11px;
-  border-radius: 9px;
-  display: none;
-  background: #e8f6ee;
-  color: #22673d;
-  overflow-wrap: anywhere;
+  margin-top:12px;
+  padding:11px;
+  border-radius:9px;
+  display:none;
+  background:#e8f6ee;
+  color:#22673d;
+  overflow-wrap:anywhere;
 }
 
 .status.err {
-  background: #fff0e5;
-  color: #94501a;
+  background:#fff0e5;
+  color:#94501a;
 }
 
 .small {
-  font-size: 12px;
-  color: #607580;
+  font-size:12px;
+  color:#607580;
 }
 
 table {
-  border-collapse: collapse;
-  width: 100%;
-  font-size: 12px;
+  border-collapse:collapse;
+  width:100%;
+  font-size:12px;
 }
 
-td, th {
-  padding: 8px;
-  border-bottom: 1px solid var(--line);
-  text-align: left;
+td,th {
+  padding:8px;
+  border-bottom:1px solid var(--line);
+  text-align:left;
 }
 
 th {
-  background: #eff6f8;
+  background:#eff6f8;
 }
 
 .scroll {
-  overflow: auto;
+  overflow:auto;
 }
 
 a {
-  color: var(--teal);
-  font-weight: 700;
+  color:var(--teal);
+  font-weight:700;
 }
 
 footer {
-  text-align: center;
-  color: #617780;
-  font-size: 12px;
-  padding: 15px;
+  text-align:center;
+  color:#617780;
+  font-size:12px;
+  padding:15px;
 }
 
 .flow-info {
-  background: #eef6f8;
-  border: 1px dashed #a8cbd4;
-  border-radius: 10px;
-  padding: 12px;
-  margin: 10px 0;
-  color: #385865;
-  font-size: 13px;
+  background:#eef6f8;
+  border:1px dashed #a8cbd4;
+  border-radius:10px;
+  padding:12px;
+  margin:10px 0;
+  color:#385865;
+  font-size:13px;
 }
 
 .stage-title {
-  margin: 18px 0 5px;
-  font-weight: 800;
-  color: var(--navy);
-  border-left: 4px solid var(--teal);
-  padding-left: 10px;
+  margin:18px 0 5px;
+  font-weight:800;
+  color:var(--navy);
+  border-left:4px solid var(--teal);
+  padding-left:10px;
 }
 
 .stage-desc {
-  font-size: 13px;
-  color: #5a707a;
-  margin: 5px 0 10px;
-}
-
-.official-mini {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  background: #e9f5f5;
-  border-radius: 10px;
-  padding: 11px 13px;
-  margin: 8px 0 12px;
-  color: #244d59;
-  font-size: 13px;
-}
-
-.official-mini small {
-  color: #607780;
+  font-size:13px;
+  color:#5a707a;
+  margin:5px 0 10px;
 }
 
 .skip-info {
-  background: #f1f8f3;
-  border: 1px solid #b9ddc2;
-  border-radius: 11px;
-  padding: 13px;
-  margin: 12px 0;
-  color: #275a39;
+  background:#f1f8f3;
+  border:1px solid #b9ddc2;
+  border-radius:11px;
+  padding:13px;
+  margin:12px 0;
+  color:#275a39;
 }
 
 .skip-info p {
-  font-size: 13px;
-  margin: 5px 0 0;
+  font-size:13px;
+  margin:5px 0 0;
 }
 
 [hidden] {
-  display: none !important;
+  display:none!important;
+}
+
+/* BAGIAN TAUTAN RESMI DAN CATATAN DISEMBUNYIKAN */
+
+.official,
+.official-mini,
+.privacy {
+  display:none!important;
 }
 
 @media(max-width:600px) {
   .steps {
-    grid-template-columns: 1fr;
-  }
-
-  .official {
-    align-items: flex-start;
-    flex-direction: column;
+    grid-template-columns:1fr;
   }
 }
 
 @media(max-width:520px) {
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns:1fr;
   }
 
   .choices {
-    gap: 12px;
+    gap:12px;
   }
 }
 </style>
@@ -365,6 +324,7 @@ footer {
 
 <header>
   <div class="wrap">
+
     <div style="font-size:12px;letter-spacing:.12em;font-weight:800;color:#b8f1ed">
       FORM PENDATAAN
     </div>
@@ -374,6 +334,7 @@ footer {
     <p class="sub">
       Isi secara mandiri dan kirim laporan status Anda.
     </p>
+
   </div>
 </header>
 
@@ -414,7 +375,7 @@ footer {
           Bagi yang belum memiliki akun Facebook (FB),
           Instagram (IG), TikTok, atau YouTube,
           silakan memasang aplikasi dan membuat akun
-          sesuai ketentuan masing-masing platform.
+          yang diperlukan sesuai ketentuan masing-masing platform.
         </p>
       </div>
     </div>
@@ -425,8 +386,7 @@ footer {
         <b>Ikuti akun resmi yang ditetapkan</b>
         <p>
           Apabila sudah memiliki akun terkait,
-          silakan kunjungi tautan berikut dan ikuti
-          akun resmi pada platform yang tersedia.
+          silakan mengikuti akun resmi yang telah ditetapkan.
         </p>
       </div>
     </div>
@@ -445,26 +405,6 @@ footer {
 
   </div>
 
-  <div class="official">
-    <p>
-      <b>Tautan akun resmi</b><br>
-      Gunakan tautan ini untuk menemukan akun resmi
-      yang telah ditetapkan.
-    </p>
-
-    <a href="https://slugpost.com/my-link"
-       target="_blank"
-       rel="noopener">
-      Buka slugpost.com/my-link ↗
-    </a>
-  </div>
-
-  <p class="privacy">
-    Catatan: Pengisian status dilakukan berdasarkan laporan
-    mandiri dan belum diverifikasi otomatis. Jangan mencantumkan
-    atau membagikan kata sandi, kode OTP, maupun informasi pribadi sensitif.
-  </p>
-
 </section>
 
 
@@ -478,7 +418,6 @@ footer {
 
     <label for="name">Nama lengkap *</label>
 
-    <!-- PERBAIKAN: name="name" -->
     <input
       id="name"
       name="name"
@@ -498,21 +437,12 @@ footer {
       <div class="choices">
 
         <label>
-          <input
-            type="radio"
-            name="phone"
-            value="Ya"
-            required
-          >
+          <input type="radio" name="phone" value="Ya" required>
           Ya, saya memiliki smartphone
         </label>
 
         <label>
-          <input
-            type="radio"
-            name="phone"
-            value="Tidak"
-          >
+          <input type="radio" name="phone" value="Tidak">
           Tidak memiliki smartphone
         </label>
 
@@ -553,27 +483,9 @@ footer {
       </div>
 
       <p class="stage-desc">
-        Apabila sudah memiliki akun, Anda disarankan
-        mengikuti akun resmi yang telah ditetapkan
-        melalui tautan berikut.
+        Apabila sudah memiliki akun, silakan isi status
+        mengikuti akun resmi yang telah ditetapkan.
       </p>
-
-      <div class="official-mini">
-
-        <span>
-          <b>Akun resmi</b><br>
-          <small>FB • IG • TikTok • YouTube</small>
-        </span>
-
-        <a
-          href="https://slugpost.com/my-link"
-          target="_blank"
-          rel="noopener"
-        >
-          Buka tautan ↗
-        </a>
-
-      </div>
 
       <div class="grid" id="flw"></div>
 
@@ -607,11 +519,7 @@ footer {
     </div>
 
 
-    <button
-      class="btn wide"
-      id="send"
-      type="submit"
-    >
+    <button class="btn wide" id="send" type="submit">
       Kirim pendataan
     </button>
 
@@ -662,7 +570,7 @@ footer {
 
 
 <footer>
-  Pendataan media sosial • Isi data secukupnya dan batasi akses laporan.
+  Pendataan media sosial
 </footer>
 
 </main>
@@ -674,11 +582,9 @@ footer {
    KONFIGURASI GOOGLE APPS SCRIPT
    ===================================================== */
 
-// WAJIB GANTI DENGAN URL WEB APP /exec MILIK ANDA
+// GANTI DENGAN URL WEB APP /exec MILIK ANDA
 
 const GAS_URL = "https://script.google.com/macros/s/AKfycbwaxqI7PRD7ivo77NX8B3-mdDG4UPS_zSZWAT5DGHjcQV_L1nWTybFzSmqPE2YZruKijA/exec";
-
-const FOLLOW_URL = "https://slugpost.com/my-link";
 
 const services = [
   "Facebook",
@@ -692,11 +598,11 @@ const services = [
    MEMBUAT PILIHAN MEDIA SOSIAL
    ===================================================== */
 
-function build(target, prefix) {
+function build(target,prefix) {
 
   const container = document.getElementById(target);
 
-  container.innerHTML = services.map((service, i) => `
+  container.innerHTML = services.map((service,i) => `
 
     <fieldset class="group">
 
@@ -705,22 +611,12 @@ function build(target, prefix) {
       <div class="choices">
 
         <label>
-          <input
-            type="radio"
-            name="${prefix}${i}"
-            value="Sudah"
-            required
-          >
+          <input type="radio" name="${prefix}${i}" value="Sudah" required>
           Sudah
         </label>
 
         <label>
-          <input
-            type="radio"
-            name="${prefix}${i}"
-            value="Belum"
-            required
-          >
+          <input type="radio" name="${prefix}${i}" value="Belum" required>
           Belum
         </label>
 
@@ -732,8 +628,8 @@ function build(target, prefix) {
 
 }
 
-build("acct", "a");
-build("flw", "f");
+build("acct","a");
+build("flw","f");
 
 
 /* =====================================================
@@ -741,15 +637,11 @@ build("flw", "f");
    ===================================================== */
 
 const form = document.getElementById("form");
-
 const msg = document.getElementById("msg");
-
 const send = document.getElementById("send");
 
 const smartSteps = document.getElementById("smartSteps");
-
 const nonSmartSteps = document.getElementById("nonSmartSteps");
-
 const flowInfo = document.getElementById("flowInfo");
 
 
@@ -760,7 +652,6 @@ const flowInfo = document.getElementById("flowInfo");
 function setSmartRoute(hasPhone) {
 
   smartSteps.hidden = !hasPhone;
-
   nonSmartSteps.hidden = hasPhone;
 
   flowInfo.textContent = hasPhone
@@ -784,14 +675,10 @@ function setSmartRoute(hasPhone) {
 }
 
 
-document.querySelectorAll(
-  'input[name="phone"]'
-).forEach(el => {
+document.querySelectorAll('input[name="phone"]').forEach(el => {
 
-  el.addEventListener("change", () => {
-
+  el.addEventListener("change",() => {
     setSmartRoute(el.value === "Ya");
-
   });
 
 });
@@ -803,13 +690,10 @@ document.querySelectorAll(
 
 function checkConfig() {
 
-  if (
-    !GAS_URL ||
-    GAS_URL.includes("TEMPEL_URL")
-  ) {
+  if (!GAS_URL || GAS_URL.includes("TEMPEL_URL")) {
 
     throw new Error(
-      "URL Google Apps Script belum dipasang. Silakan isi variabel GAS_URL pada kode HTML."
+      "URL Google Apps Script belum dipasang pada variabel GAS_URL."
     );
 
   }
@@ -827,25 +711,22 @@ async function postToGas(payload) {
 
   const response = await fetch(GAS_URL, {
 
-    method: "POST",
+    method:"POST",
 
-    headers: {
-      "Content-Type": "text/plain;charset=utf-8"
+    headers:{
+      "Content-Type":"text/plain;charset=utf-8"
     },
 
-    body: JSON.stringify(payload),
+    body:JSON.stringify(payload),
 
-    redirect: "follow"
+    redirect:"follow"
 
   });
 
   if (!response.ok) {
-
     throw new Error(
-      "Server tidak merespons dengan baik. Status: " +
-      response.status
+      "Server tidak merespons dengan baik. Status: " + response.status
     );
-
   }
 
   return await response.json();
@@ -857,7 +738,7 @@ async function postToGas(payload) {
    PROSES PENGIRIMAN FORMULIR
    ===================================================== */
 
-form.addEventListener("submit", async function(e) {
+form.addEventListener("submit",async function(e) {
 
   e.preventDefault();
 
@@ -865,7 +746,6 @@ form.addEventListener("submit", async function(e) {
     return;
   }
 
-  // AMBIL NAMA LANGSUNG DARI INPUT
   const nameInput = document.getElementById("name");
 
   const name = nameInput.value.trim();
@@ -877,133 +757,85 @@ form.addEventListener("submit", async function(e) {
   if (!name) {
 
     msg.className = "status err";
-
     msg.textContent = "Nama lengkap wajib diisi.";
-
     msg.style.display = "block";
 
     nameInput.focus();
 
     return;
-
   }
 
   if (!phoneInput) {
 
     msg.className = "status err";
-
     msg.textContent = "Silakan pilih status kepemilikan smartphone.";
-
     msg.style.display = "block";
 
     return;
-
   }
 
   const phone = phoneInput.value;
 
   const payload = {
 
-    action: "submit",
+    action:"submit",
 
-    name: name,
+    name:name,
 
-    phone: phone,
+    phone:phone,
 
-    accounts: phone === "Ya"
-      ? services.map((_, i) => {
-          return form.querySelector(
-            `input[name="a${i}"]:checked`
-          )?.value || "";
-        })
-      : ["", "", "", ""],
+    accounts:phone === "Ya"
+      ? services.map((_,i) =>
+          form.querySelector(`input[name="a${i}"]:checked`)?.value || ""
+        )
+      : ["","","",""],
 
-    follows: phone === "Ya"
-      ? services.map((_, i) => {
-          return form.querySelector(
-            `input[name="f${i}"]:checked`
-          )?.value || "";
-        })
-      : ["", "", "", ""]
+    follows:phone === "Ya"
+      ? services.map((_,i) =>
+          form.querySelector(`input[name="f${i}"]:checked`)?.value || ""
+        )
+      : ["","","",""]
 
   };
 
-
-  // TAMPILAN PROSES
-
   send.disabled = true;
-
   send.textContent = "Mengirim data...";
 
   msg.style.display = "none";
-
 
   try {
 
     const result = await postToGas(payload);
 
     if (!result.success) {
-
-      throw new Error(
-        result.message || "Data gagal disimpan."
-      );
-
+      throw new Error(result.message || "Data gagal disimpan.");
     }
 
-
-    // PESAN BERHASIL
-
     msg.className = "status";
-
     msg.textContent = "Terima kasih. Data berhasil dikirim.";
 
-    const link = document.createElement("a");
-
-    link.href = result.followUrl || FOLLOW_URL;
-
-    link.target = "_blank";
-
-    link.rel = "noopener";
-
-    link.textContent = "Buka akun resmi untuk mengikuti";
-
-    msg.appendChild(document.createElement("br"));
-
-    msg.appendChild(link);
-
     msg.style.display = "block";
-
-
-    // RESET FORM SETELAH BERHASIL
 
     form.reset();
 
     smartSteps.hidden = true;
-
     nonSmartSteps.hidden = true;
 
     flowInfo.textContent =
       "Silakan pilih status kepemilikan smartphone untuk menampilkan tahapan berikutnya.";
 
-    nameInput.focus();
-
-
   } catch(error) {
-
-    // PESAN GAGAL
 
     msg.className = "status err";
 
     msg.textContent =
-      "Gagal mengirim data: " +
-      (error.message || String(error));
+      "Gagal mengirim data: " + (error.message || String(error));
 
     msg.style.display = "block";
 
   } finally {
 
     send.disabled = false;
-
     send.textContent = "Kirim pendataan";
 
   }
@@ -1012,83 +844,49 @@ form.addEventListener("submit", async function(e) {
 
 
 /* =====================================================
-   LOGIN ADMIN DAN MENAMPILKAN REKAP
+   JSONP UNTUK LAPORAN ADMIN
    ===================================================== */
 
 function jsonp(url) {
 
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve,reject) => {
 
     const callback =
-      "gasCallback_" +
-      Date.now() +
-      "_" +
-      Math.floor(Math.random() * 100000);
+      "gasCallback_" + Date.now() + "_" +
+      Math.floor(Math.random()*100000);
 
     const script = document.createElement("script");
 
     const timer = setTimeout(() => {
-
       cleanup();
-
-      reject(
-        new Error(
-          "Waktu permintaan habis. Periksa URL deployment dan koneksi internet."
-        )
-      );
-
-    }, 20000);
-
+      reject(new Error("Waktu permintaan habis. Periksa URL deployment."));
+    },20000);
 
     function cleanup() {
-
       clearTimeout(timer);
-
       delete window[callback];
-
       script.remove();
-
     }
 
-
     window[callback] = function(data) {
-
       cleanup();
-
       resolve(data);
-
     };
-
 
     script.onerror = function() {
-
       cleanup();
-
-      reject(
-        new Error(
-          "Tidak dapat menghubungi Google Apps Script."
-        )
-      );
-
+      reject(new Error("Tidak dapat menghubungi Google Apps Script."));
     };
-
 
     const pin = document.getElementById("pin").value;
 
     script.src =
-
-      GAS_URL +
-
-      (GAS_URL.includes("?") ? "&" : "?") +
-
+      url +
+      (url.includes("?") ? "&" : "?") +
       "action=admin" +
-
       "&pin=" + encodeURIComponent(pin) +
-
       "&callback=" + callback +
-
       "&t=" + Date.now();
-
 
     document.body.appendChild(script);
 
@@ -1107,42 +905,27 @@ document.getElementById("admin").addEventListener(
 
     const area = document.getElementById("report");
 
-    if (
-      !GAS_URL ||
-      GAS_URL.includes("TEMPEL_URL")
-    ) {
-
-      area.textContent =
-        "URL Google Apps Script belum dipasang.";
-
+    if (!GAS_URL || GAS_URL.includes("TEMPEL_URL")) {
+      area.textContent = "URL Google Apps Script belum dipasang.";
       return;
-
     }
 
     area.textContent = "Memuat laporan...";
-
 
     try {
 
       const res = await jsonp(GAS_URL);
 
       if (!res.success) {
-
-        throw new Error(
-          res.message || "Tidak dapat mengambil laporan."
-        );
-
+        throw new Error(res.message || "Tidak dapat mengambil laporan.");
       }
 
-
       const wrapper = document.createElement("div");
-
       wrapper.className = "scroll";
 
       const table = document.createElement("table");
 
-
-      res.rows.forEach((row, ri) => {
+      res.rows.forEach((row,ri) => {
 
         const tr = document.createElement("tr");
 
@@ -1152,9 +935,7 @@ document.getElementById("admin").addEventListener(
             ri === 0 ? "th" : "td"
           );
 
-          c.textContent =
-            cell == null ? "" : String(cell);
-
+          c.textContent = cell == null ? "" : String(cell);
           c.style.whiteSpace = "normal";
 
           tr.appendChild(c);
@@ -1165,37 +946,27 @@ document.getElementById("admin").addEventListener(
 
       });
 
-
       wrapper.appendChild(table);
 
-
       const link = document.createElement("p");
-
       const a = document.createElement("a");
 
       a.href = res.sheetUrl;
-
       a.target = "_blank";
-
       a.rel = "noopener";
-
       a.textContent = "Buka Google Spreadsheet";
-
 
       link.appendChild(a);
 
-      area.replaceChildren(link, wrapper);
-
+      area.replaceChildren(link,wrapper);
 
     } catch(error) {
 
-      area.textContent =
-        error.message || String(error);
+      area.textContent = error.message || String(error);
 
     }
 
   }
-
 );
 
 </script>
