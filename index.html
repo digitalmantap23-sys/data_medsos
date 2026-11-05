@@ -364,6 +364,26 @@ input:focus{
 #activityResume h3{margin:0 0 6px;color:#176b3a}
 #activityResume p{margin:5px 0 12px;font-size:13px;color:#466557}
 
+/* Jendela akun resmi di dalam aplikasi (iframe/modal) */
+.follow-window{
+  display:none;position:fixed;inset:0;z-index:10001;
+  background:rgba(10,28,38,.82);padding:12px;
+  align-items:center;justify-content:center;
+}
+.follow-window-dialog{
+  width:min(1100px,100%);height:min(850px,calc(100vh - 24px));
+  background:#fff;border-radius:16px;overflow:hidden;
+  display:flex;flex-direction:column;box-shadow:0 18px 60px rgba(0,0,0,.35);
+}
+.follow-window-bar{
+  flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;
+  gap:10px;padding:10px 13px;background:#153b50;color:#fff;
+}
+.follow-window-bar strong{font-size:14px}
+.follow-window-bar .btn{padding:9px 13px;font-size:13px}
+#followFrame{display:block;border:0;width:100%;height:100%;flex:1 1 auto;background:#fff}
+.follow-frame-note{margin:0;padding:7px 12px;background:#f5f8fa;color:#526b76;font-size:12px}
+
 .small{
   font-size:12px;
   color:#607580;
@@ -599,10 +619,10 @@ footer{
         <div class="follow-box">
           <h3>📱 Langkah Selanjutnya</h3>
           <p>Silakan kunjungi tautan berikut untuk menemukan dan mengikuti akun media sosial resmi yang telah ditetapkan. Halaman pendataan ini akan tetap terbuka.</p>
-          <a class="btn follow" id="followLink" href="https://slugpost.com/my-link" target="_blank" rel="noopener noreferrer">
+          <a class="btn follow" id="followLink" href="https://slugpost.com/my-link">
             🌐 IKUTI AKUN RESMI SEKARANG ↗
           </a>
-          <p class="follow-note">Tautan terbuka di tab baru. Setelah mengikuti akun resmi, kembali ke halaman ini untuk melaporkan aktivitas.</p>
+          <p class="follow-note">Akun resmi dibuka dalam jendela di aplikasi ini. Tekan “Kembali ke Laporan” setelah selesai mengikuti akun.</p>
         </div>
 
         <h3 class="activity-title">📋 Laporan Aktivitas Mengikuti</h3>
@@ -654,6 +674,24 @@ footer{
           <button class="btn" id="saveActivity" type="button">📩 Kirim Laporan Aktivitas</button>
           <button class="btn secondary" id="closeActivity" type="button">Tutup Sementara</button>
         </div>
+      </div>
+    </div>
+
+    <!-- JENDELA AKUN RESMI DI DALAM APLIKASI -->
+    <div class="follow-window" id="followWindow" role="dialog" aria-modal="true" aria-label="Akun media sosial resmi">
+      <div class="follow-window-dialog">
+        <div class="follow-window-bar">
+          <strong>🌐 Akun Media Sosial Resmi</strong>
+          <button class="btn secondary" id="backToReport" type="button">↩ Kembali ke Laporan</button>
+        </div>
+        <iframe
+          id="followFrame"
+          title="Halaman akun media sosial resmi"
+          src="about:blank"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="clipboard-read; clipboard-write"
+        ></iframe>
+        <p class="follow-frame-note">Setelah selesai mengikuti akun, tekan “Kembali ke Laporan” untuk mengisi status Facebook, Instagram, TikTok, dan YouTube.</p>
       </div>
     </div>
 
@@ -1056,6 +1094,32 @@ form.addEventListener("submit",async function(event){
 
 
 /* =====================================================
+   MEMBUKA AKUN RESMI DI JENDELA DALAM APLIKASI
+===================================================== */
+
+const followWindow = document.getElementById("followWindow");
+const followFrame = document.getElementById("followFrame");
+const followLink = document.getElementById("followLink");
+const backToReportButton = document.getElementById("backToReport");
+
+followLink.addEventListener("click",function(event){
+  event.preventDefault();
+  // Memuat tautan resmi di dalam iframe, bukan tab/jendela browser baru.
+  followFrame.src = FOLLOW_URL;
+  followWindow.style.display = "flex";
+  document.body.style.overflow = "hidden";
+});
+
+function returnToActivityReport(){
+  followWindow.style.display = "none";
+  // Hentikan halaman eksternal ketika kembali ke formulir laporan.
+  followFrame.src = "about:blank";
+  document.body.style.overflow = "hidden";
+}
+
+backToReportButton.addEventListener("click",returnToActivityReport);
+
+/* =====================================================
    LAPORAN AKTIVITAS FOLLOW — MEMPERBARUI DATA YANG SAMA
 ===================================================== */
 
@@ -1160,6 +1224,10 @@ async function submitFollowReport(){
 saveActivityButton.addEventListener("click",submitFollowReport);
 document.getElementById("closeActivity").addEventListener("click",closeActivityModal);
 document.addEventListener("keydown",event=>{
+  if(event.key === "Escape" && followWindow.style.display === "flex"){
+    returnToActivityReport();
+    return;
+  }
   if(event.key === "Escape" && successPanel.style.display === "flex") closeActivityModal();
 });
 document.getElementById("reopenActivity").addEventListener("click",openActivityModal);
