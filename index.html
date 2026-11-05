@@ -1013,12 +1013,11 @@ form.addEventListener("submit",async function(event){
   }
 
 
-  // Tautan akun resmi hanya ditampilkan jika pengguna sudah memiliki
-  // sekurang-kurangnya tiga dari empat akun media sosial yang didata.
+  // Jumlah akun hanya digunakan untuk menyesuaikan pesan motivasi.
+  // Semua pengguna tetap boleh membuka tautan akun resmi, tanpa batas minimum akun.
   const ownedAccountCount = phone === "Ya"
     ? accounts.filter(value => value === "Sudah").length
     : 0;
-  const canFollowOfficial = ownedAccountCount >= 3;
 
   const payload = {
 
@@ -1083,7 +1082,7 @@ form.addEventListener("submit",async function(event){
       msg.style.display = "none";
       activityResume.hidden = false;
       setFollowStatuses(["","","",""]);
-      showEligibilityMessage(canFollowOfficial, ownedAccountCount);
+      showEligibilityMessage(ownedAccountCount);
       openActivityModal();
 
     }else{
@@ -1169,29 +1168,31 @@ function showActivityStatus(message,isError=false){
   activityStatus.style.display = "block";
 }
 
-function showEligibilityMessage(isEligible, ownedCount){
+function showEligibilityMessage(ownedCount){
   const message = document.getElementById("eligibilityMessage");
   const eligibleContent = document.getElementById("eligibleContent");
   const notEligibleActions = document.getElementById("notEligibleActions");
 
+  // Tautan akun resmi dan formulir laporan selalu tersedia untuk semua pengguna.
+  eligibleContent.hidden = false;
+  notEligibleActions.hidden = true;
   message.hidden = false;
-  eligibleContent.hidden = !isEligible;
-  notEligibleActions.hidden = isEligible;
 
-  if(isEligible){
+  if(ownedCount > 0){
     message.innerHTML = `
       <span class="encourage-icon">🎉🌟</span>
-      <h3>Hebat! Anda Siap Melangkah!</h3>
-      <p>Terima kasih sudah memiliki akun media sosial. Silakan lanjutkan dengan mengikuti akun resmi yang telah disarankan.</p>
-      <p>Jika ada perubahan data kepemilikan akun, Anda dapat mengisi pendataan kembali.</p>
+      <h3>Terima Kasih, Semangat Terus!</h3>
+      <p>Terima kasih sudah memiliki akun media sosial. Silakan buka tautan akun resmi yang disarankan dan ikuti akun pada platform yang Anda gunakan.</p>
+      <p>Jika masih ada akun media sosial yang belum dimiliki, yuk segera buat akun tersebut. Anda tetap dapat membuka tautan akun resmi sekarang.</p>
+      <p><strong>Terus gunakan media sosial dengan bijak dan positif! ✨</strong></p>
     `;
   }else{
     message.innerHTML = `
       <span class="encourage-icon">🌱💪😊</span>
-      <h3>Yuk, Semangat Melengkapi Akun!</h3>
-      <p>Tidak apa-apa jika saat ini Anda belum memiliki akun media sosial yang cukup. Semua bisa dimulai sedikit demi sedikit.</p>
-      <p>Ayo buat akun media sosial yang belum dimiliki. Belajar hal baru itu menyenangkan! Setelah akun tersedia, silakan isi pendataan kembali agar dapat melanjutkan ke akun resmi yang disarankan.</p>
-      <p><strong>Semangat! Kami yakin Anda bisa! ✨</strong></p>
+      <h3>Yuk, Mulai Langkah Baru!</h3>
+      <p>Jangan khawatir jika belum memiliki akun media sosial yang disarankan. Anda tetap dapat membuka tautan akun resmi untuk melihat akun yang perlu diikuti.</p>
+      <p>Jika belum memiliki akun pada platform tersebut, yuk segera buat akun. Mulailah sedikit demi sedikit. Anda pasti bisa!</p>
+      <p><strong>Semangat belajar dan berkembang di dunia digital! 🚀</strong></p>
     `;
   }
 }
