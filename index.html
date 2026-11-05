@@ -358,6 +358,14 @@ input:focus{
   background:#e8f6ee;color:#22673d;font-size:13px;
 }
 .activity-status.err{background:#fff0e5;color:#94501a}
+.eligibility-message{
+  padding:18px 16px;margin:14px 0;border-radius:15px;text-align:center;
+  background:linear-gradient(145deg,#fff7df,#fffdf5);border:1px solid #f0d58a;
+  color:#624b17;box-shadow:0 8px 22px rgba(110,83,20,.10);
+}
+.eligibility-message .encourage-icon{font-size:34px;display:block;margin-bottom:7px}
+.eligibility-message h3{margin:0 0 8px;color:#805b0b;font-size:19px}
+.eligibility-message p{margin:6px 0;font-size:14px;line-height:1.55}
 .modal-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
 .modal-actions .btn{flex:1;min-width:180px}
 #activityResume{margin-top:15px;border:1px solid #cde5d5;background:#f5fbf7}
@@ -616,6 +624,9 @@ footer{
           <p>Terima kasih. Data pendataan Anda telah berhasil dikirim dan disimpan.</p>
         </div>
 
+        <div id="eligibilityMessage" class="eligibility-message" role="status" aria-live="polite" hidden></div>
+
+        <div id="eligibleContent">
         <div class="follow-box">
           <h3>📱 Langkah Selanjutnya</h3>
           <p>Silakan kunjungi tautan berikut untuk menemukan dan mengikuti akun media sosial resmi yang telah ditetapkan. Halaman pendataan ini akan tetap terbuka.</p>
@@ -673,6 +684,11 @@ footer{
         <div class="modal-actions">
           <button class="btn" id="saveActivity" type="button">📩 Kirim Laporan Aktivitas</button>
           <button class="btn secondary" id="closeActivity" type="button">Tutup Sementara</button>
+        </div>
+        </div><!-- /eligibleContent -->
+        <div id="notEligibleActions" class="modal-actions" hidden>
+          <button class="btn" id="retryEntry" type="button">↻ Isi Pendataan Kembali</button>
+          <button class="btn secondary" id="closeEncouragement" type="button">Tutup</button>
         </div>
       </div>
     </div>
@@ -997,6 +1013,13 @@ form.addEventListener("submit",async function(event){
   }
 
 
+  // Tautan akun resmi hanya ditampilkan jika pengguna sudah memiliki
+  // sekurang-kurangnya tiga dari empat akun media sosial yang didata.
+  const ownedAccountCount = phone === "Ya"
+    ? accounts.filter(value => value === "Sudah").length
+    : 0;
+  const canFollowOfficial = ownedAccountCount >= 3;
+
   const payload = {
 
     action:"submit",
@@ -1060,6 +1083,7 @@ form.addEventListener("submit",async function(event){
       msg.style.display = "none";
       activityResume.hidden = false;
       setFollowStatuses(["","","",""]);
+      showEligibilityMessage(canFollowOfficial, ownedAccountCount);
       openActivityModal();
 
     }else{
@@ -1143,6 +1167,33 @@ function showActivityStatus(message,isError=false){
   activityStatus.textContent = message;
   activityStatus.className = isError ? "activity-status err" : "activity-status";
   activityStatus.style.display = "block";
+}
+
+function showEligibilityMessage(isEligible, ownedCount){
+  const message = document.getElementById("eligibilityMessage");
+  const eligibleContent = document.getElementById("eligibleContent");
+  const notEligibleActions = document.getElementById("notEligibleActions");
+
+  message.hidden = false;
+  eligibleContent.hidden = !isEligible;
+  notEligibleActions.hidden = isEligible;
+
+  if(isEligible){
+    message.innerHTML = `
+      <span class="encourage-icon">🎉🌟</span>
+      <h3>Hebat! Anda Siap Melangkah!</h3>
+      <p>Terima kasih sudah memiliki akun media sosial. Silakan lanjutkan dengan mengikuti akun resmi yang telah disarankan.</p>
+      <p>Jika ada perubahan data kepemilikan akun, Anda dapat mengisi pendataan kembali.</p>
+    `;
+  }else{
+    message.innerHTML = `
+      <span class="encourage-icon">🌱💪😊</span>
+      <h3>Yuk, Semangat Melengkapi Akun!</h3>
+      <p>Tidak apa-apa jika saat ini Anda belum memiliki akun media sosial yang cukup. Semua bisa dimulai sedikit demi sedikit.</p>
+      <p>Ayo buat akun media sosial yang belum dimiliki. Belajar hal baru itu menyenangkan! Setelah akun tersedia, silakan isi pendataan kembali agar dapat melanjutkan ke akun resmi yang disarankan.</p>
+      <p><strong>Semangat! Kami yakin Anda bisa! ✨</strong></p>
+    `;
+  }
 }
 
 function openActivityModal(){
@@ -1452,6 +1503,13 @@ refreshButton.addEventListener("click",()=>{
 // Hentikan refresh otomatis ketika halaman ditutup atau ditinggalkan
 // tidak diperlukan; browser akan menghentikan interval saat halaman unload.
 
+
+// Jika pengguna belum memenuhi syarat akun, arahkan untuk mengisi ulang
+// setelah membuat akun yang diperlukan. Tombol ini memakai alur Isi Pendataan Baru.
+document.getElementById("retryEntry").addEventListener("click",()=>{
+  document.getElementById("newEntry").click();
+});
+document.getElementById("closeEncouragement").addEventListener("click",closeActivityModal);
 </script>
 
 </body>
