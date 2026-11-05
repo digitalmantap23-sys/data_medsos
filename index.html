@@ -1,10 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#087f8c">
 
-<title>Pendataan Smartphone & Media Sosial</title>
+<title>Pendataan Smartphone & Akun Media Sosial</title>
 
 <style>
 :root{
@@ -13,7 +15,6 @@
   --bg:#f2f7fa;
   --line:#d9e5ea;
   --green:#16834b;
-  --red:#c0392b;
 }
 
 *{
@@ -244,18 +245,6 @@ input:focus{
   color:var(--navy);
 }
 
-#refreshReport{
-  background:linear-gradient(120deg,#16834b,#20a464);
-}
-
-#refreshReport[hidden]{
-  display:none!important;
-}
-
-#refreshInfo{
-  margin:10px 0 4px;
-}
-
 .status{
   display:none;
   margin-top:13px;
@@ -289,108 +278,81 @@ input:focus{
   display:none!important;
 }
 
-/* Jendela laporan aktivitas setelah data berhasil dikirim */
+/* PANEL SETELAH DATA BERHASIL */
 .success-panel{
   display:none;
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  align-items:center;
-  justify-content:center;
-  padding:16px;
-  background:rgba(10,28,38,.72);
-  overflow-y:auto;
-  animation:showPanel .25s ease;
-}
-
-.success-dialog{
-  width:min(720px,100%);
-  max-height:calc(100vh - 32px);
-  overflow-y:auto;
-  position:relative;
-  text-align:left;
-  background:#f8fcfd;
-  border:1px solid #cde1e7;
-  border-radius:20px;
-  padding:22px;
-  box-shadow:0 18px 60px rgba(0,0,0,.25);
+  text-align:center;
+  background:linear-gradient(145deg,#effbf4,#ffffff);
+  border:2px solid #b9e3c8;
+  border-radius:18px;
+  padding:25px 18px;
+  margin-top:16px;
+  animation:showPanel .4s ease;
 }
 
 @keyframes showPanel{
-  from{opacity:0;transform:translateY(12px)}
-  to{opacity:1;transform:translateY(0)}
+  from{
+    opacity:0;
+    transform:translateY(12px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
-.success-head{text-align:center}
 .success-icon{
-  width:58px;height:58px;display:grid;place-items:center;
-  margin:0 auto 10px;border-radius:50%;background:#d8f5e3;
-  color:#16834b;font-size:32px;font-weight:900;
+  width:68px;
+  height:68px;
+  display:grid;
+  place-items:center;
+  margin:0 auto 12px;
+  border-radius:50%;
+  background:#d8f5e3;
+  color:#16834b;
+  font-size:37px;
+  font-weight:900;
 }
-.success-panel h2{color:#176b3a;margin:5px 0;font-size:22px}
-.success-panel p{color:#466557;margin:8px 0 14px}
-.follow-box{
-  background:white;border:1px solid #cde5d5;border-radius:14px;
-  padding:15px;margin:14px 0;
-}
-.follow-box h3{color:var(--navy);margin:0 0 7px;font-size:17px}
-.follow-box p{font-size:13px;margin:5px 0 13px}
-.follow-box .btn{width:100%}
-.follow-note{font-size:12px!important;color:#71847a!important;margin-top:11px!important}
-.activity-title{margin:18px 0 5px;color:var(--navy);font-size:17px}
-.activity-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
-.activity-item{
-  background:white;border:1px solid var(--line);border-radius:12px;
-  padding:12px;min-width:0;
-}
-.activity-item label{margin:0 0 7px;color:var(--navy);font-weight:800}
-.activity-item select{
-  width:100%;padding:11px 10px;border:1px solid #bfd0d8;
-  border-radius:9px;background:white;font:inherit;font-size:14px;
-}
-.activity-item select:focus{outline:2px solid rgba(8,127,140,.2);border-color:var(--teal)}
-.activity-hint{
-  background:#fff8e8;border:1px solid #f0d99e;color:#72551b;
-  border-radius:10px;padding:11px 12px;font-size:13px;margin:10px 0;
-}
-.activity-status{
-  display:none;padding:11px 12px;border-radius:10px;margin:10px 0;
-  background:#e8f6ee;color:#22673d;font-size:13px;
-}
-.activity-status.err{background:#fff0e5;color:#94501a}
-.eligibility-message{
-  padding:18px 16px;margin:14px 0;border-radius:15px;text-align:center;
-  background:linear-gradient(145deg,#fff7df,#fffdf5);border:1px solid #f0d58a;
-  color:#624b17;box-shadow:0 8px 22px rgba(110,83,20,.10);
-}
-.eligibility-message .encourage-icon{font-size:34px;display:block;margin-bottom:7px}
-.eligibility-message h3{margin:0 0 8px;color:#805b0b;font-size:19px}
-.eligibility-message p{margin:6px 0;font-size:14px;line-height:1.55}
-.modal-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
-.modal-actions .btn{flex:1;min-width:180px}
-#activityResume{margin-top:15px;border:1px solid #cde5d5;background:#f5fbf7}
-#activityResume h3{margin:0 0 6px;color:#176b3a}
-#activityResume p{margin:5px 0 12px;font-size:13px;color:#466557}
 
-/* Jendela akun resmi di dalam aplikasi (iframe/modal) */
-.follow-window{
-  display:none;position:fixed;inset:0;z-index:10001;
-  background:rgba(10,28,38,.82);padding:12px;
-  align-items:center;justify-content:center;
+.success-panel h2{
+  color:#176b3a;
+  margin:5px 0;
+  font-size:23px;
 }
-.follow-window-dialog{
-  width:min(1100px,100%);height:min(850px,calc(100vh - 24px));
-  background:#fff;border-radius:16px;overflow:hidden;
-  display:flex;flex-direction:column;box-shadow:0 18px 60px rgba(0,0,0,.35);
+
+.success-panel p{
+  color:#466557;
+  margin:8px 0 16px;
 }
-.follow-window-bar{
-  flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;
-  gap:10px;padding:10px 13px;background:#153b50;color:#fff;
+
+.follow-box{
+  background:white;
+  border:1px solid #cde5d5;
+  border-radius:14px;
+  padding:17px;
+  margin:16px 0;
 }
-.follow-window-bar strong{font-size:14px}
-.follow-window-bar .btn{padding:9px 13px;font-size:13px}
-#followFrame{display:block;border:0;width:100%;height:100%;flex:1 1 auto;background:#fff}
-.follow-frame-note{margin:0;padding:7px 12px;background:#f5f8fa;color:#526b76;font-size:12px}
+
+.follow-box h3{
+  color:var(--navy);
+  margin:0 0 7px;
+  font-size:17px;
+}
+
+.follow-box p{
+  font-size:13px;
+  margin:5px 0 14px;
+}
+
+.follow-box .btn{
+  width:100%;
+}
+
+.follow-note{
+  font-size:12px!important;
+  color:#71847a!important;
+  margin-top:12px!important;
+}
 
 .small{
   font-size:12px;
@@ -615,114 +577,54 @@ footer{
     </form>
 
 
-    <!-- JENDELA LAPORAN AKTIVITAS -->
-    <div class="success-panel" id="successPanel" role="dialog" aria-modal="true" aria-labelledby="successTitle">
-      <div class="success-dialog">
-        <div class="success-head">
-          <div class="success-icon">✓</div>
-          <h2 id="successTitle">Data Berhasil Dikirim!</h2>
-          <p>Terima kasih. Data pendataan Anda telah berhasil dikirim dan disimpan.</p>
-        </div>
+    <!-- PESAN BERHASIL DAN TOMBOL FOLLOW -->
+    <div
+      class="success-panel"
+      id="successPanel"
+      aria-live="polite"
+    >
 
-        <div id="eligibilityMessage" class="eligibility-message" role="status" aria-live="polite" hidden></div>
+      <div class="success-icon">✓</div>
 
-        <div id="eligibleContent">
-        <div class="follow-box">
-          <h3>📱 Langkah Selanjutnya</h3>
-          <p>Silakan kunjungi tautan berikut untuk menemukan dan mengikuti akun media sosial resmi yang telah ditetapkan. Halaman pendataan ini akan tetap terbuka.</p>
-          <a
-  class="btn follow"
-  href="https://slugpost.com/my-link"
-  target="_self"
->
-  🌐 IKUTI AKUN RESMI SEKARANG ↗
-</a>
-          <p class="follow-note">Akun resmi dibuka dalam jendela di aplikasi ini. Tekan “Kembali ke Laporan” setelah selesai mengikuti akun.</p>
-        </div>
+      <h2>Data Berhasil Dikirim!</h2>
 
-        <h3 class="activity-title">📋 Laporan Aktivitas Mengikuti</h3>
-        <p class="small">Pilih status untuk setiap platform. Jika belum memiliki akun, pilih “Belum memiliki akun” dan buat akun terlebih dahulu. Anda dapat kembali memperbarui laporan ini setelah akun dibuat.</p>
+      <p>
+        Terima kasih. Data pendataan Anda telah berhasil dikirim dan disimpan.
+      </p>
 
-        <div class="activity-grid">
-          <div class="activity-item">
-            <label for="followFb">Mengikuti FB</label>
-            <select id="followFb" class="follow-choice">
-              <option value="">Pilih status</option>
-              <option value="Sudah mengikuti">Sudah mengikuti</option>
-              <option value="Belum memiliki akun">Belum memiliki akun (akan membuat akun)</option>
-              <option value="Belum mengikuti">Belum mengikuti</option>
-            </select>
-          </div>
-          <div class="activity-item">
-            <label for="followIg">Mengikuti IG</label>
-            <select id="followIg" class="follow-choice">
-              <option value="">Pilih status</option>
-              <option value="Sudah mengikuti">Sudah mengikuti</option>
-              <option value="Belum memiliki akun">Belum memiliki akun (akan membuat akun)</option>
-              <option value="Belum mengikuti">Belum mengikuti</option>
-            </select>
-          </div>
-          <div class="activity-item">
-            <label for="followTiktok">Mengikuti TikTok</label>
-            <select id="followTiktok" class="follow-choice">
-              <option value="">Pilih status</option>
-              <option value="Sudah mengikuti">Sudah mengikuti</option>
-              <option value="Belum memiliki akun">Belum memiliki akun (akan membuat akun)</option>
-              <option value="Belum mengikuti">Belum mengikuti</option>
-            </select>
-          </div>
-          <div class="activity-item">
-            <label for="followYoutube">Mengikuti YouTube</label>
-            <select id="followYoutube" class="follow-choice">
-              <option value="">Pilih status</option>
-              <option value="Sudah mengikuti">Sudah mengikuti</option>
-              <option value="Belum memiliki akun">Belum memiliki akun (akan membuat akun)</option>
-              <option value="Belum mengikuti">Belum mengikuti</option>
-            </select>
-          </div>
-        </div>
+      <div class="follow-box">
 
-        <div class="activity-hint">💡 Jika memilih “Belum memiliki akun”, silakan buat akun pada platform tersebut. Setelah akun tersedia dan sudah mengikuti akun resmi, buka kembali laporan aktivitas untuk memperbarui status menjadi “Sudah mengikuti”.</div>
-        <div id="activityStatus" class="activity-status" role="status" aria-live="polite"></div>
+        <h3>📱 Langkah Selanjutnya</h3>
 
-        <div class="modal-actions">
-          <button class="btn" id="saveActivity" type="button">📩 Kirim Laporan Aktivitas</button>
-          <button class="btn secondary" id="closeActivity" type="button">Tutup Sementara</button>
-        </div>
-        </div><!-- /eligibleContent -->
-        <div id="notEligibleActions" class="modal-actions" hidden>
-          <button class="btn" id="retryEntry" type="button">↻ Isi Pendataan Kembali</button>
-          <button class="btn secondary" id="closeEncouragement" type="button">Tutup</button>
-        </div>
+        <p>
+          Silakan kunjungi tautan berikut untuk menemukan dan mengikuti
+          akun media sosial resmi yang telah ditetapkan.
+        </p>
+
+        <!-- PENTING: target _self membuka di tab yang sama -->
+        <a
+          class="btn follow"
+          href="https://slugpost.com/my-link"
+          target="_self"
+        >
+          🌐 IKUTI AKUN RESMI SEKARANG ↗
+        </a>
+
+        <p class="follow-note">
+          Anda akan langsung diarahkan ke halaman akun resmi SlugPost.
+          Silakan ikuti akun resmi pada platform yang tersedia.
+        </p>
+
       </div>
-    </div>
 
-    <!-- JENDELA AKUN RESMI DI DALAM APLIKASI -->
-    <div class="follow-window" id="followWindow" role="dialog" aria-modal="true" aria-label="Akun media sosial resmi">
-      <div class="follow-window-dialog">
-        <div class="follow-window-bar">
-          <strong>🌐 Akun Media Sosial Resmi</strong>
-          <button class="btn secondary" id="backToReport" type="button">↩ Kembali ke Laporan</button>
-        </div>
-        <iframe
-          id="followFrame"
-          title="Halaman akun media sosial resmi"
-          src="about:blank"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allow="clipboard-read; clipboard-write"
-        ></iframe>
-        <p class="follow-frame-note">Setelah selesai mengikuti akun, tekan “Kembali ke Laporan” untuk mengisi status Facebook, Instagram, TikTok, dan YouTube.</p>
-      </div>
-    </div>
+      <button
+        class="btn secondary"
+        id="newEntry"
+        type="button"
+      >
+        ↻ Isi Pendataan Baru
+      </button>
 
-    <!-- Tombol untuk membuka kembali laporan, termasuk setelah halaman dimuat ulang -->
-    <div class="card" id="activityResume" hidden>
-      <h3>📋 Laporan Aktivitas Media Sosial</h3>
-      <p>Data pendataan sudah tersimpan. Anda dapat membuka atau memperbarui laporan aktivitas mengikuti akun resmi.</p>
-      <div class="grid">
-        <button class="btn" id="reopenActivity" type="button">📋 Buka / Perbarui Laporan</button>
-        <button class="btn secondary" id="newEntry" type="button">↻ Isi Pendataan Baru</button>
-      </div>
     </div>
 
   </section>
@@ -733,6 +635,11 @@ footer{
 
     <h2>🔐 Admin — Lihat Rekap</h2>
 
+    <p class="small">
+      Bagian ini khusus admin. PIN ditentukan melalui pengaturan Code.gs.
+      Jangan membagikan PIN kepada pengisi formulir.
+    </p>
+
     <label for="pin">PIN Admin</label>
 
     <input
@@ -742,28 +649,14 @@ footer{
       placeholder="Masukkan PIN admin"
     >
 
-    <div class="grid" style="margin-top:10px">
-      <button
-        class="btn secondary"
-        id="admin"
-        type="button"
-      >
-        📊 Tampilkan Laporan
-      </button>
-
-      <button
-        class="btn"
-        id="refreshReport"
-        type="button"
-        hidden
-      >
-        ↻ Perbarui Laporan
-      </button>
-    </div>
-
-    <p class="small" id="refreshInfo" aria-live="polite">
-      Refresh otomatis akan aktif setelah laporan berhasil ditampilkan.
-    </p>
+    <button
+      class="btn secondary"
+      id="admin"
+      type="button"
+      style="margin-top:10px"
+    >
+      Tampilkan Laporan
+    </button>
 
     <div id="report"></div>
 
@@ -790,7 +683,7 @@ footer{
   https://script.google.com/macros/s/AKfycbxxxxxxxx/exec
 */
 
-const GAS_URL = "https://script.google.com/macros/s/AKfycbwaxqI7PRD7ivo77NX8B3-mdDG4UPS_zSZWAT5DGHjcQV_L1nWTybFzSmqPE2YZruKijA/exec";
+const GAS_URL = "TEMPEL_URL_WEB_APP_GOOGLE_APPS_SCRIPT_DI_SINI";
 
 const FOLLOW_URL = "https://slugpost.com/my-link";
 
@@ -854,19 +747,12 @@ buildAccounts();
 ===================================================== */
 
 const form = document.getElementById("form");
-
 const msg = document.getElementById("msg");
-
 const send = document.getElementById("send");
-
 const smartSteps = document.getElementById("smartSteps");
-
 const nonSmartSteps = document.getElementById("nonSmartSteps");
-
 const flowInfo = document.getElementById("flowInfo");
-
 const successPanel = document.getElementById("successPanel");
-
 const formCard = document.getElementById("formCard");
 
 
@@ -877,7 +763,6 @@ const formCard = document.getElementById("formCard");
 function setSmartRoute(hasPhone){
 
   smartSteps.hidden = !hasPhone;
-
   nonSmartSteps.hidden = hasPhone;
 
   flowInfo.textContent = hasPhone
@@ -1017,12 +902,6 @@ form.addEventListener("submit",async function(event){
   }
 
 
-  // Jumlah akun hanya digunakan untuk menyesuaikan pesan motivasi.
-  // Semua pengguna tetap boleh membuka tautan akun resmi, tanpa batas minimum akun.
-  const ownedAccountCount = phone === "Ya"
-    ? accounts.filter(value => value === "Sudah").length
-    : 0;
-
   const payload = {
 
     action:"submit",
@@ -1047,12 +926,6 @@ form.addEventListener("submit",async function(event){
 
   try{
 
-    /*
-      Menggunakan text/plain agar permintaan JSON tidak memicu
-      preflight OPTIONS pada pengiriman lintas domain.
-      Apps Script membaca isi JSON melalui e.postData.contents.
-    */
-
     const response = await fetch(GAS_URL,{
 
       method:"POST",
@@ -1073,21 +946,20 @@ form.addEventListener("submit",async function(event){
 
     if(result.success === true){
 
-      // Simpan ID unik agar laporan aktivitas dapat memperbarui
-      // baris pendataan yang sama, termasuk setelah halaman dibuka kembali.
-      if(!result.recordId){
-        throw new Error("Data tersimpan, tetapi ID laporan tidak diterima. Periksa pembaruan Code.gs.");
-      }
-
-      localStorage.setItem("pendataanRecordId", result.recordId);
-      localStorage.setItem("pendataanFollowStatuses", JSON.stringify(["","","",""]));
+      /* Sembunyikan formulir setelah berhasil */
 
       form.style.display = "none";
+
       msg.style.display = "none";
-      activityResume.hidden = false;
-      setFollowStatuses(["","","",""]);
-      showEligibilityMessage(ownedAccountCount);
-      openActivityModal();
+
+      /* Tampilkan pesan sukses dan tautan SlugPost */
+
+      successPanel.style.display = "block";
+
+      successPanel.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+      });
 
     }else{
 
@@ -1121,400 +993,185 @@ form.addEventListener("submit",async function(event){
 
 
 /* =====================================================
-   MEMBUKA AKUN RESMI DI JENDELA DALAM APLIKASI
-===================================================== */
-
-const followWindow = document.getElementById("followWindow");
-const followFrame = document.getElementById("followFrame");
-const followLink = document.getElementById("followLink");
-const backToReportButton = document.getElementById("backToReport");
-
-followLink.addEventListener("click",function(event){
-  event.preventDefault();
-  // Memuat tautan resmi di dalam iframe, bukan tab/jendela browser baru.
-  followFrame.src = FOLLOW_URL;
-  followWindow.style.display = "flex";
-  document.body.style.overflow = "hidden";
-});
-
-function returnToActivityReport(){
-  followWindow.style.display = "none";
-  // Hentikan halaman eksternal ketika kembali ke formulir laporan.
-  followFrame.src = "about:blank";
-  document.body.style.overflow = "hidden";
-}
-
-backToReportButton.addEventListener("click",returnToActivityReport);
-
-/* =====================================================
-   LAPORAN AKTIVITAS FOLLOW — MEMPERBARUI DATA YANG SAMA
-===================================================== */
-
-const activityResume = document.getElementById("activityResume");
-const activityStatus = document.getElementById("activityStatus");
-const saveActivityButton = document.getElementById("saveActivity");
-const followChoiceIds = ["followFb","followIg","followTiktok","followYoutube"];
-
-function getFollowStatuses(){
-  return followChoiceIds.map(id => document.getElementById(id).value);
-}
-
-function setFollowStatuses(values){
-  const statuses = Array.isArray(values) ? values : ["","","",""];
-  followChoiceIds.forEach((id,index)=>{
-    document.getElementById(id).value = statuses[index] || "";
-  });
-}
-
-function showActivityStatus(message,isError=false){
-  activityStatus.textContent = message;
-  activityStatus.className = isError ? "activity-status err" : "activity-status";
-  activityStatus.style.display = "block";
-}
-
-function showEligibilityMessage(ownedCount){
-  const message = document.getElementById("eligibilityMessage");
-  const eligibleContent = document.getElementById("eligibleContent");
-  const notEligibleActions = document.getElementById("notEligibleActions");
-
-  // Tautan akun resmi dan formulir laporan selalu tersedia untuk semua pengguna.
-  eligibleContent.hidden = false;
-  notEligibleActions.hidden = true;
-  message.hidden = false;
-
-  if(ownedCount > 0){
-    message.innerHTML = `
-      <span class="encourage-icon">🎉🌟</span>
-      <h3>Terima Kasih, Semangat Terus!</h3>
-      <p>Terima kasih sudah memiliki akun media sosial. Silakan buka tautan akun resmi yang disarankan dan ikuti akun pada platform yang Anda gunakan.</p>
-      <p>Jika masih ada akun media sosial yang belum dimiliki, yuk segera buat akun tersebut. Anda tetap dapat membuka tautan akun resmi sekarang.</p>
-      <p><strong>Terus gunakan media sosial dengan bijak dan positif! ✨</strong></p>
-    `;
-  }else{
-    message.innerHTML = `
-      <span class="encourage-icon">🌱💪😊</span>
-      <h3>Yuk, Mulai Langkah Baru!</h3>
-      <p>Jangan khawatir jika belum memiliki akun media sosial yang disarankan. Anda tetap dapat membuka tautan akun resmi untuk melihat akun yang perlu diikuti.</p>
-      <p>Jika belum memiliki akun pada platform tersebut, yuk segera buat akun. Mulailah sedikit demi sedikit. Anda pasti bisa!</p>
-      <p><strong>Semangat belajar dan berkembang di dunia digital! 🚀</strong></p>
-    `;
-  }
-}
-
-function openActivityModal(){
-  const saved = localStorage.getItem("pendataanFollowStatuses");
-  if(saved){
-    try{ setFollowStatuses(JSON.parse(saved)); }catch(e){ setFollowStatuses(["","","",""]); }
-  }
-  activityStatus.style.display = "none";
-  successPanel.style.display = "flex";
-  document.body.style.overflow = "hidden";
-}
-
-function closeActivityModal(){
-  successPanel.style.display = "none";
-  document.body.style.overflow = "";
-  activityResume.hidden = !localStorage.getItem("pendataanRecordId");
-}
-
-async function submitFollowReport(){
-  const recordId = localStorage.getItem("pendataanRecordId");
-  const follows = getFollowStatuses();
-
-  if(!recordId){
-    showActivityStatus("ID pendataan tidak ditemukan. Silakan kirim pendataan terlebih dahulu.",true);
-    return;
-  }
-
-  if(follows.some(value => !["Sudah mengikuti","Belum memiliki akun","Belum mengikuti"].includes(value))){
-    showActivityStatus("Silakan pilih status untuk Facebook, Instagram, TikTok, dan YouTube.",true);
-    return;
-  }
-
-  if(!isGasUrlReady()){
-    showActivityStatus("URL Google Apps Script belum dipasang.",true);
-    return;
-  }
-
-  saveActivityButton.disabled = true;
-  saveActivityButton.textContent = "⏳ Menyimpan Laporan...";
-  activityStatus.style.display = "none";
-
-  try{
-    const response = await fetch(GAS_URL,{
-      method:"POST",
-      redirect:"follow",
-      headers:{"Content-Type":"text/plain;charset=utf-8"},
-      body:JSON.stringify({
-        action:"followReport",
-        recordId:recordId,
-        follows:follows
-      })
-    });
-
-    const result = await response.json();
-
-    if(result.success === true){
-      localStorage.setItem("pendataanFollowStatuses",JSON.stringify(follows));
-      const hasMissingAccount = follows.includes("Belum memiliki akun");
-      showActivityStatus(
-        hasMissingAccount
-          ? "✓ Laporan berhasil disimpan. Silakan buat akun yang belum dimiliki, lalu buka kembali laporan ini untuk memperbarui status setelah mengikuti akun resmi."
-          : "✓ Laporan aktivitas berhasil disimpan dan diperbarui pada data pendataan Anda."
-      );
-      saveActivityButton.textContent = "↻ Perbarui Laporan Aktivitas";
-    }else{
-      showActivityStatus(result.message || "Laporan aktivitas gagal disimpan.",true);
-    }
-  }catch(error){
-    console.error("Kesalahan laporan aktivitas:",error);
-    showActivityStatus("Terjadi kendala saat menyimpan laporan. Periksa koneksi internet, lalu coba kembali.",true);
-  }finally{
-    saveActivityButton.disabled = false;
-    if(saveActivityButton.textContent === "⏳ Menyimpan Laporan..."){
-      saveActivityButton.textContent = "📩 Kirim Laporan Aktivitas";
-    }
-  }
-}
-
-saveActivityButton.addEventListener("click",submitFollowReport);
-document.getElementById("closeActivity").addEventListener("click",closeActivityModal);
-document.addEventListener("keydown",event=>{
-  if(event.key === "Escape" && followWindow.style.display === "flex"){
-    returnToActivityReport();
-    return;
-  }
-  if(event.key === "Escape" && successPanel.style.display === "flex") closeActivityModal();
-});
-document.getElementById("reopenActivity").addEventListener("click",openActivityModal);
-
-// Pulihkan akses laporan jika pengguna kembali membuka halaman.
-if(localStorage.getItem("pendataanRecordId")){
-  activityResume.hidden = false;
-}
-
-/* =====================================================
    TOMBOL ISI DATA BARU
 ===================================================== */
 
-document.getElementById("newEntry").addEventListener("click",()=>{
-  form.reset();
-  form.style.display = "block";
-  closeActivityModal();
-  activityResume.hidden = true;
-  localStorage.removeItem("pendataanRecordId");
-  localStorage.removeItem("pendataanFollowStatuses");
-  setFollowStatuses(["","","",""]);
-  saveActivityButton.textContent = "📩 Kirim Laporan Aktivitas";
-  smartSteps.hidden = true;
-  nonSmartSteps.hidden = true;
-  flowInfo.textContent = "Silakan pilih status kepemilikan smartphone untuk menampilkan tahapan berikutnya.";
-  msg.style.display = "none";
-  send.disabled = false;
-  send.textContent = "📩 Kirim Pendataan";
-  window.scrollTo({top:formCard.offsetTop - 15,behavior:"smooth"});
-});
+document
+  .getElementById("newEntry")
+  .addEventListener("click",()=>{
 
-/* =====================================================
-   ADMIN — MELIHAT DAN MEMPERBARUI REKAP
-===================================================== */
+    form.reset();
 
-const adminButton = document.getElementById("admin");
-const refreshButton = document.getElementById("refreshReport");
-const refreshInfo = document.getElementById("refreshInfo");
-const reportArea = document.getElementById("report");
+    form.style.display = "block";
 
-let adminRefreshTimer = null;
-let adminRequestRunning = false;
-let adminHasLoaded = false;
+    successPanel.style.display = "none";
 
-/*
-  Memuat laporan menggunakan JSONP.
-  PIN yang sudah dimasukkan akan digunakan kembali saat refresh,
-  sehingga admin tidak perlu mengetik PIN berulang kali.
-*/
-function loadAdminReport(isAutomatic = false){
+    smartSteps.hidden = true;
 
-  const pin = document.getElementById("pin").value.trim();
+    nonSmartSteps.hidden = true;
 
-  if(!isGasUrlReady()){
-    reportArea.textContent = "URL Google Apps Script belum dipasang.";
-    return;
-  }
+    flowInfo.textContent =
+      "Silakan pilih status kepemilikan smartphone untuk menampilkan tahapan berikutnya.";
 
-  if(!pin){
-    reportArea.textContent = "Masukkan PIN admin terlebih dahulu.";
-    return;
-  }
+    msg.style.display = "none";
 
-  // Hindari permintaan bertumpuk ketika permintaan sebelumnya belum selesai.
-  if(adminRequestRunning) return;
+    send.disabled = false;
 
-  adminRequestRunning = true;
-  refreshButton.disabled = true;
-  adminButton.disabled = true;
+    send.textContent = "📩 Kirim Pendataan";
 
-  refreshButton.textContent = "⏳ Memperbarui...";
-  refreshInfo.textContent = isAutomatic
-    ? "⏳ Memeriksa data terbaru secara otomatis..."
-    : "⏳ Sedang mengambil laporan terbaru...";
-
-  if(!adminHasLoaded){
-    reportArea.textContent = "⏳ Memuat laporan...";
-  }
-
-  const callbackName = "gasAdminCallback_" + Date.now() + "_" +
-    Math.random().toString(36).slice(2);
-
-  const script = document.createElement("script");
-  let requestFinished = false;
-
-  function finishRequest(){
-    if(requestFinished) return;
-    requestFinished = true;
-    adminRequestRunning = false;
-    adminButton.disabled = false;
-    refreshButton.disabled = false;
-    refreshButton.textContent = "↻ Perbarui Laporan";
-    delete window[callbackName];
-    if(script.parentNode) script.remove();
-  }
-
-  const timeout = window.setTimeout(()=>{
-    if(requestFinished) return;
-
-    finishRequest();
-    refreshInfo.textContent =
-      "⚠️ Waktu pengambilan data habis. Silakan tekan Perbarui Laporan.";
-    if(!adminHasLoaded){
-      reportArea.textContent =
-        "Tidak ada respons dari Google Apps Script. Periksa koneksi dan deployment.";
-    }
-  }, 20000);
-
-  window[callbackName] = function(result){
-
-    if(requestFinished) return;
-
-    window.clearTimeout(timeout);
-    finishRequest();
-
-    if(!result || result.success !== true){
-      refreshInfo.textContent = "⚠️ Gagal memperbarui laporan.";
-      if(!adminHasLoaded){
-        reportArea.textContent =
-          (result && result.message) || "Gagal mengambil laporan.";
-      }
-      return;
-    }
-
-    // Tautan Spreadsheet
-    const linkArea = document.createElement("p");
-    const spreadsheetLink = document.createElement("a");
-
-    spreadsheetLink.href = result.sheetUrl;
-    spreadsheetLink.target = "_blank";
-    spreadsheetLink.rel = "noopener noreferrer";
-    spreadsheetLink.textContent = "📊 Buka Google Spreadsheet";
-
-    linkArea.appendChild(spreadsheetLink);
-
-    // Tabel laporan terbaru
-    const scroll = document.createElement("div");
-    scroll.className = "scroll";
-
-    const table = document.createElement("table");
-
-    (result.rows || []).forEach((row,rowIndex)=>{
-      const tr = document.createElement("tr");
-
-      row.forEach(cell=>{
-        const td = document.createElement(
-          rowIndex === 0 ? "th" : "td"
-        );
-
-        td.textContent = cell == null ? "" : cell;
-        tr.appendChild(td);
-      });
-
-      table.appendChild(tr);
+    window.scrollTo({
+      top:formCard.offsetTop - 15,
+      behavior:"smooth"
     });
 
-    if(!result.rows || result.rows.length === 0){
-      const empty = document.createElement("p");
-      empty.className = "small";
-      empty.textContent = "Belum ada data pendataan.";
-      scroll.appendChild(empty);
-    }else{
+  });
+
+
+/* =====================================================
+   ADMIN — MELIHAT REKAP GOOGLE SPREADSHEET
+===================================================== */
+
+document
+  .getElementById("admin")
+  .addEventListener("click",()=>{
+
+    const pin = document
+      .getElementById("pin")
+      .value
+      .trim();
+
+    const area = document.getElementById("report");
+
+
+    if(!isGasUrlReady()){
+
+      area.textContent =
+        "URL Google Apps Script belum dipasang.";
+
+      return;
+
+    }
+
+
+    if(!pin){
+
+      area.textContent =
+        "Masukkan PIN admin terlebih dahulu.";
+
+      return;
+
+    }
+
+
+    area.textContent = "⏳ Memuat laporan...";
+
+
+    const callbackName =
+      "gasAdminCallback_" + Date.now();
+
+
+    const script = document.createElement("script");
+
+
+    window[callbackName] = function(result){
+
+      delete window[callbackName];
+
+      script.remove();
+
+
+      if(!result || result.success !== true){
+
+        area.textContent =
+          (result && result.message) ||
+          "Gagal mengambil laporan.";
+
+        return;
+
+      }
+
+
+      /* Tautan Spreadsheet */
+
+      const linkArea = document.createElement("p");
+
+      const spreadsheetLink = document.createElement("a");
+
+      spreadsheetLink.href = result.sheetUrl;
+
+      spreadsheetLink.target = "_blank";
+
+      spreadsheetLink.rel = "noopener noreferrer";
+
+      spreadsheetLink.textContent =
+        "📊 Buka Google Spreadsheet";
+
+      linkArea.appendChild(spreadsheetLink);
+
+
+      /* Tabel laporan */
+
+      const scroll = document.createElement("div");
+
+      scroll.className = "scroll";
+
+      const table = document.createElement("table");
+
+
+      (result.rows || []).forEach((row,rowIndex)=>{
+
+        const tr = document.createElement("tr");
+
+
+        row.forEach(cell=>{
+
+          const td = document.createElement(
+            rowIndex === 0 ? "th" : "td"
+          );
+
+          td.textContent = cell == null ? "" : cell;
+
+          tr.appendChild(td);
+
+        });
+
+
+        table.appendChild(tr);
+
+      });
+
+
       scroll.appendChild(table);
-    }
 
-    reportArea.replaceChildren(linkArea,scroll);
+      area.replaceChildren(linkArea,scroll);
 
-    adminHasLoaded = true;
-    refreshButton.hidden = false;
-
-    const now = new Date();
-    refreshInfo.textContent =
-      "✓ Laporan diperbarui: " + now.toLocaleTimeString("id-ID") +
-      " • Refresh otomatis setiap 15 detik.";
-  };
-
-  script.onerror = function(){
-    if(requestFinished) return;
-
-    window.clearTimeout(timeout);
-    finishRequest();
-
-    refreshInfo.textContent =
-      "⚠️ Tidak dapat terhubung ke Google Apps Script. Periksa URL dan deployment.";
-
-    if(!adminHasLoaded){
-      reportArea.textContent =
-        "Gagal mengambil laporan. Periksa koneksi internet dan URL Google Apps Script.";
-    }
-  };
-
-  script.src =
-    GAS_URL +
-    "?action=admin" +
-    "&pin=" + encodeURIComponent(pin) +
-    "&callback=" + callbackName +
-    "&t=" + Date.now();
-
-  document.body.appendChild(script);
-}
-
-// Tombol pertama kali menampilkan laporan dan mengaktifkan refresh otomatis.
-adminButton.addEventListener("click",()=>{
-  loadAdminReport(false);
-
-  if(adminRefreshTimer){
-    window.clearInterval(adminRefreshTimer);
-  }
-
-  adminRefreshTimer = window.setInterval(()=>{
-    if(adminHasLoaded && !document.hidden){
-      loadAdminReport(true);
-    }
-  }, 15000);
-});
-
-// Tombol refresh manual.
-refreshButton.addEventListener("click",()=>{
-  loadAdminReport(false);
-});
-
-// Hentikan refresh otomatis ketika halaman ditutup atau ditinggalkan
-// tidak diperlukan; browser akan menghentikan interval saat halaman unload.
+    };
 
 
-// Jika pengguna belum memenuhi syarat akun, arahkan untuk mengisi ulang
-// setelah membuat akun yang diperlukan. Tombol ini memakai alur Isi Pendataan Baru.
-document.getElementById("retryEntry").addEventListener("click",()=>{
-  document.getElementById("newEntry").click();
-});
-document.getElementById("closeEncouragement").addEventListener("click",closeActivityModal);
+    script.onerror = function(){
+
+      area.textContent =
+        "Tidak dapat terhubung ke Google Apps Script. Periksa URL dan deployment.";
+
+      delete window[callbackName];
+
+      script.remove();
+
+    };
+
+
+    script.src =
+      GAS_URL +
+      "?action=admin" +
+      "&pin=" + encodeURIComponent(pin) +
+      "&callback=" + callbackName +
+      "&t=" + Date.now();
+
+
+    document.body.appendChild(script);
+
+  });
+
 </script>
 
 </body>
