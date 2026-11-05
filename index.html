@@ -601,9 +601,10 @@ footer{
           akun media sosial resmi yang telah ditetapkan.
         </p>
 
-        <!-- PENTING: target _self membuka di tab yang sama -->
+        <!-- Membuka SlugPost di jendela/tab yang sedang digunakan -->
         <a
           class="btn follow"
+          id="followNow"
           href="https://slugpost.com/my-link"
           target="_self"
         >
@@ -989,6 +990,16 @@ form.addEventListener("submit",async function(event){
 
   }
 
+});
+
+
+/* =====================================================
+   TOMBOL SLUGPOST — NAVIGASI DI TAB/JENDELA YANG SAMA
+===================================================== */
+
+document.getElementById("followNow").addEventListener("click", function(event){
+  event.preventDefault();
+  window.location.assign(FOLLOW_URL);
 });
 
 
