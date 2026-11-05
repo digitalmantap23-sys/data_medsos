@@ -592,7 +592,7 @@ footer{
         Terima kasih. Data pendataan Anda telah berhasil dikirim dan disimpan.
       </p>
 
-      <div class="follow-box">
+      <div class="follow-box" id="followBox">
 
         <h3>📱 Langkah Selanjutnya</h3>
 
@@ -627,6 +627,19 @@ footer{
         ↻ Isi Pendataan Baru
       </button>
 
+    </div>
+
+    <!-- KONFIRMASI FOLLOW: DITAMPILKAN SETELAH KEMBALI DARI SLUGPOST -->
+    <div class="success-panel" id="followConfirmPanel" aria-live="polite">
+      <div class="success-icon">✓</div>
+      <h2>Konfirmasi Follow Akun Resmi</h2>
+      <p>Selamat datang kembali! Silakan pilih status untuk setiap akun media sosial yang telah ditetapkan.</p>
+      <form id="followConfirmForm">
+        <div id="followChoices" class="grid"></div>
+        <div class="status" id="followMsg" role="status" aria-live="polite"></div>
+        <button class="btn wide" id="sendFollowConfirm" type="submit">📩 Kirim Konfirmasi Follow</button>
+      </form>
+      <p class="follow-note">Terima kasih telah mendukung akun resmi. Pastikan pilihan Anda sudah benar sebelum mengirim konfirmasi.</p>
     </div>
 
   </section>
@@ -904,18 +917,17 @@ form.addEventListener("submit",async function(event){
   }
 
 
+  const submissionId = (window.crypto && crypto.randomUUID)
+    ? crypto.randomUUID()
+    : "ID-" + Date.now() + "-" + Math.random().toString(36).slice(2);
+
   const payload = {
-
     action:"submit",
-
+    submissionId:submissionId,
     name:name,
-
     phone:phone,
-
     accounts:accounts,
-
     follows:["","","",""]
-
   };
 
 
@@ -948,6 +960,9 @@ form.addEventListener("submit",async function(event){
 
     if(result.success === true){
 
+      sessionStorage.setItem("pendingFollowSubmissionId", submissionId);
+      sessionStorage.setItem("pendingFollowPhone", phone);
+
       /* Sembunyikan formulir setelah berhasil */
 
       form.style.display = "none";
@@ -957,6 +972,11 @@ form.addEventListener("submit",async function(event){
       /* Tampilkan pesan sukses dan tautan SlugPost */
 
       successPanel.style.display = "block";
+      document.getElementById("followBox").style.display = phone === "Ya" ? "block" : "none";
+      if(phone !== "Ya"){
+        document.querySelector("#successPanel > p").textContent =
+          "Data Anda berhasil dikirim. Karena Anda menyatakan tidak memiliki smartphone, tahapan follow dapat dilewati.";
+      }
 
       successPanel.scrollIntoView({
         behavior:"smooth",
@@ -1000,7 +1020,89 @@ form.addEventListener("submit",async function(event){
 
 document.getElementById("followNow").addEventListener("click", function(event){
   event.preventDefault();
+  sessionStorage.setItem("returnFromSlugpost", "yes");
   window.location.assign(FOLLOW_URL);
+});
+
+
+/* =====================================================
+   KONFIRMASI FOLLOW SETELAH KEMBALI DARI SLUGPOST
+===================================================== */
+
+const followConfirmPanel = document.getElementById("followConfirmPanel");
+const followConfirmForm = document.getElementById("followConfirmForm");
+const followMsg = document.getElementById("followMsg");
+const followChoices = document.getElementById("followChoices");
+
+followChoices.innerHTML = services.map((service,index)=>`
+  <fieldset class="group">
+    <legend>${service}</legend>
+    <div class="choices">
+      <label><input type="radio" name="f${index}" value="Sudah" required> Sudah Follow</label>
+      <label><input type="radio" name="f${index}" value="Belum" required> Belum Follow</label>
+    </div>
+  </fieldset>
+`).join("");
+
+function showFollowConfirmation(){
+  const returned = sessionStorage.getItem("returnFromSlugpost") === "yes";
+  const submissionId = sessionStorage.getItem("pendingFollowSubmissionId");
+  const phone = sessionStorage.getItem("pendingFollowPhone");
+  if(returned && submissionId && phone === "Ya"){
+    sessionStorage.removeItem("returnFromSlugpost");
+    successPanel.style.display = "none";
+    followConfirmPanel.style.display = "block";
+    followConfirmPanel.scrollIntoView({behavior:"smooth",block:"center"});
+  }
+}
+
+window.addEventListener("pageshow", showFollowConfirmation);
+document.addEventListener("DOMContentLoaded", showFollowConfirmation);
+
+followConfirmForm.addEventListener("submit", async function(event){
+  event.preventDefault();
+  const submissionId = sessionStorage.getItem("pendingFollowSubmissionId");
+  if(!submissionId){
+    followMsg.textContent = "Data pendataan sebelumnya tidak ditemukan. Silakan lakukan pendataan kembali.";
+    followMsg.className = "status err";
+    followMsg.style.display = "block";
+    return;
+  }
+  const follows = services.map((service,index)=>{
+    const selected = followConfirmForm.querySelector(`input[name="f${index}"]:checked`);
+    return selected ? selected.value : "";
+  });
+  if(follows.some(value => !["Sudah","Belum"].includes(value))){
+    followMsg.textContent = "Silakan pilih status follow untuk Facebook, Instagram, TikTok, dan YouTube.";
+    followMsg.className = "status err";
+    followMsg.style.display = "block";
+    return;
+  }
+  const button = document.getElementById("sendFollowConfirm");
+  button.disabled = true;
+  button.textContent = "⏳ Mengirim Konfirmasi...";
+  try{
+    const response = await fetch(GAS_URL,{
+      method:"POST", redirect:"follow",
+      headers:{"Content-Type":"text/plain;charset=utf-8"},
+      body:JSON.stringify({action:"confirmFollow",submissionId:submissionId,follows:follows})
+    });
+    const result = await response.json();
+    if(result.success === true){
+      followMsg.textContent = "Konfirmasi follow berhasil disimpan. Terima kasih!";
+      followMsg.className = "status";
+      followMsg.style.display = "block";
+      sessionStorage.removeItem("pendingFollowSubmissionId");
+      sessionStorage.removeItem("pendingFollowPhone");
+      button.textContent = "✓ Konfirmasi Berhasil";
+    }else{ throw new Error(result.message || "Konfirmasi belum berhasil disimpan."); }
+  }catch(error){
+    followMsg.textContent = error.message || "Terjadi kendala. Silakan coba kembali.";
+    followMsg.className = "status err";
+    followMsg.style.display = "block";
+    button.disabled = false;
+    button.textContent = "📩 Kirim Konfirmasi Follow";
+  }
 });
 
 
@@ -1017,6 +1119,11 @@ document
     form.style.display = "block";
 
     successPanel.style.display = "none";
+    followConfirmPanel.style.display = "none";
+    followConfirmForm.reset();
+    sessionStorage.removeItem("pendingFollowSubmissionId");
+    sessionStorage.removeItem("pendingFollowPhone");
+    sessionStorage.removeItem("returnFromSlugpost");
 
     smartSteps.hidden = true;
 
